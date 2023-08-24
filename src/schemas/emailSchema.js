@@ -7,4 +7,4 @@ const emailSchema = Joi.object({
     .required()
     .messages({ "any.required": "missing required email field" }),
 });
-module.exports = emailSchema;
+module.exports = { emailSchema };
