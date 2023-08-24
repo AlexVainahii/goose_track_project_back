@@ -1,7 +1,7 @@
 const express = require("express");
 const middleW = require("../../middlewares");
 const { schemas } = require("../../schemas");
-const { usersCtrl } = require("../../controlers");
+const { usersCtrl } = require("../../controllers");
 
 const router = express.Router();
 
@@ -26,7 +26,7 @@ router.post(
 
 router.get("/current", middleW.authenticate, usersCtrl.getCurrent);
 
-router.patch("/user");
+router.patch("/user", middleW.authenticate);
 
 router.post("/logout", middleW.authenticate, usersCtrl.logOut);
 
