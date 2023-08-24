@@ -28,8 +28,7 @@ const register = async (req, res) => {
   const verifyEmail = {
     to: email,
     subject: "Verify email",
-    html: `<a target="_blank" href="${process.env.BASE_URL}${process.env.PORT}/verify/${verificationToken}">Click verify email</a>`,
-    text: `<a target="_blank" href="$http://localhost:5000/verify/${verificationToken}">Click verify email</a>`,
+    html: `<a target="_blank" href="${process.env.BASE_URL}/verify/${verificationToken}">Click verify email</a>`,
   };
 
   await service.sendEmail(verifyEmail);

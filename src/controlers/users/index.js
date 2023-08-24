@@ -1,2 +1,4 @@
 const { register } = require("./register");
-module.exports = { register };
+const { verifyEmail } = require("./verifyEmail");
+const { resendVerifyEmail } = require("./resendVerifyEmail");
+module.exports = { register, verifyEmail, resendVerifyEmail };

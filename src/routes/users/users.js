@@ -25,4 +25,11 @@ router.patch("/user");
 
 router.post("/logout");
 
+router.get("/verify/:verificationToken", usersCtrl.verifyEmail);
+router.post(
+  "/verify",
+  middleW.validateBody(schemas.emailSchema),
+  usersCtrl.resendVerifyEmail
+);
+
 module.exports = router;
