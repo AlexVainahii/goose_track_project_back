@@ -2,6 +2,9 @@
   "name": "goose_track_project_back",
   "version": "0.0.0",
   "private": true,
+  "engines": {
+    "node": ">=14.20.1"
+  }
   "scripts": {
     "test": "jest",
     "start": "cross-env NODE_ENV=production node ./server.js",
