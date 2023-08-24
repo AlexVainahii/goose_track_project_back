@@ -9,7 +9,8 @@ router.post("/register", (req, res, next) => {
 });
 router.get("/", (req, res, next) => {
   res.status(200).json({
-    message: "Hello Users",
+    message:
+      "Hello team Андрій Гадар, Ганна Тіль, Олександр Вайнагій, Андрій Ганзел, Сергій Серчинський,Андрій Кецко, Володимир Костенко, Юрій Клименко,Галина Карпінська,   Юрій Кагадій, Олександр Дерень,Ілля Сидор",
   });
 });
 router.post("/login");
