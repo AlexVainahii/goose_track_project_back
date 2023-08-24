@@ -1,12 +1,16 @@
 const express = require("express");
+const middleW = require("../../middlewares");
+const { schemas } = require("../../schemas");
+const { usersCtrl } = require("../../controlers");
 
 const router = express.Router();
 
-router.post("/register", (req, res, next) => {
-  res.status(200).json({
-    message: "register",
-  });
-});
+router.post(
+  "/register",
+  middleW.validateBody(schemas.registerSchema),
+  usersCtrl.register
+);
+
 router.get("/", (req, res, next) => {
   res.status(200).json({
     message:

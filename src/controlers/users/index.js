@@ -1,2 +1,2 @@
-const {} = require("");
-module.exports = {};
+const { register } = require("./register");
+module.exports = { register };

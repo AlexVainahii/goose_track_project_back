@@ -13,6 +13,6 @@ const reviewShema = new Schema(
 
 reviewShema.post("save", service.handleMongooseError);
 
-const Review = model("task", reviewShema);
+const Review = model("review", reviewShema);
 
 module.exports = { Review };

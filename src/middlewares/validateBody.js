@@ -1,4 +1,4 @@
-const service = require("../src/service");
+const service = require("../service");
 
 const validateBody = (schema) => {
   const func = (req, res, next) => {
