@@ -1,2 +1,0 @@
-const {} = require("");
-module.exports = {};
