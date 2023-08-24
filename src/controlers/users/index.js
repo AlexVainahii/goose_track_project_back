@@ -1,4 +1,5 @@
 const { register } = require("./register");
 const { verifyEmail } = require("./verifyEmail");
 const { resendVerifyEmail } = require("./resendVerifyEmail");
-module.exports = { register, verifyEmail, resendVerifyEmail };
+const { logIn } = require("./logIn");
+module.exports = { register, verifyEmail, resendVerifyEmail, logIn };

@@ -17,7 +17,11 @@ router.get("/", (req, res, next) => {
       "Hello team Андрій Гадар, Ганна Тіль, Олександр Вайнагій, Андрій Ганзел, Сергій Серчинський,Андрій Кецко, Володимир Костенко, Юрій Клименко,Галина Карпінська,   Юрій Кагадій, Олександр Дерень,Ілля Сидор",
   });
 });
-router.post("/login");
+router.post(
+  "/login",
+  middleW.validateBody(schemas.loginSchema),
+  usersCtrl.logIn
+);
 
 router.get("/current");
 

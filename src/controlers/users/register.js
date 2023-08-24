@@ -6,8 +6,8 @@ const { v4: uuidv4 } = require("uuid");
 const asyncHandler = require("express-async-handler");
 
 const register = async (req, res) => {
-  const { email, password, userName } = req.body;
-  console.log("object :>> ", email, password, userName);
+  const { email, password } = req.body;
+
   const user = await User.findOne({ email });
 
   service.CheckByError(user, 409, "Email in use");
