@@ -23,13 +23,14 @@ router.post(
   usersCtrl.logIn
 );
 
-router.get("/current");
+router.get("/current", middleW.authenticate, usersCtrl);
 
 router.patch("/user");
 
-router.post("/logout");
+router.post("/logout", middleW.authenticate, usersCtrl.logOut);
 
 router.get("/verify/:verificationToken", usersCtrl.verifyEmail);
+
 router.post(
   "/verify",
   middleW.validateBody(schemas.emailSchema),
