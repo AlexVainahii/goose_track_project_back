@@ -4,7 +4,7 @@ const router = express.Router();
 
 router.post("/register", (req, res, next) => {
   res.status(200).json({
-    user: 1,
+    message: "register",
   });
 });
 router.get("/", (req, res, next) => {
