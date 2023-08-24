@@ -1,4 +1,4 @@
-const service = require("../../service");
+const expressAsyncHandler = require("express-async-handler");
 
 const getCurrent = async (req, res) => {
   const { email } = req.user;
@@ -8,4 +8,4 @@ const getCurrent = async (req, res) => {
   });
 };
 
-module.exports = service.ctrlWrap(getCurrent);
+module.exports = { getCurrent: expressAsyncHandler(getCurrent) };

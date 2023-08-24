@@ -23,7 +23,7 @@ router.post(
   usersCtrl.logIn
 );
 
-router.get("/current", middleW.authenticate, usersCtrl);
+router.get("/current", middleW.authenticate, usersCtrl.getCurrent);
 
 router.patch("/user");
 
