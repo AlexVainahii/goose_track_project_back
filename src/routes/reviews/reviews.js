@@ -1,6 +1,6 @@
 const express = require("express");
 const { reviewsCtrl } = require("../../controllers");
-const MV = require("../../middlewares");
+const MV = require("../../middleware");
 
 const router = express.Router();
 

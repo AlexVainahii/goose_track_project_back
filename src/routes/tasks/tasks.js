@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const MV = require("../../middlewares");
+const MV = require("../../middleware");
 
 const { tasksCtrl } = require("../../controllers");
 
