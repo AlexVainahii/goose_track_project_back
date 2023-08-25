@@ -11,11 +11,7 @@ const options = {
 };
 router.get("/docs/swagger.json", (req, res) => res.json(swaggerDocument));
 
-router.use(
-  "/docs",
-  swaggerUi.serveFiles(null, options),
-  swaggerUi.setup(null, options)
-);
-// router.get("/docs", swaggerUi.setup(null, options));
+router.use("/docs", swaggerUi.serveFiles(null, options));
+router.get("/docs", swaggerUi.setup(null, options));
 
 module.exports = router;
