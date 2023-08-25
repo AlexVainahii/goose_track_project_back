@@ -1,4 +1,5 @@
 const usersRouter = require("./users");
 const reviewsRouter = require("./reviews");
 const tasksRouter = require("./tasks");
-module.exports = { usersRouter, reviewsRouter, tasksRouter };
+const docsRouter = require("./docs");
+module.exports = { usersRouter, reviewsRouter, tasksRouter, docsRouter };
