@@ -1,5 +1,5 @@
 const { Schema, model } = require("mongoose");
-const service = require("../service");
+const service = require("@service");
 
 const reviewShema = new Schema(
   {

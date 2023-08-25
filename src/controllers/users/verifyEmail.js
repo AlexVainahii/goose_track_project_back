@@ -1,5 +1,5 @@
-const { User } = require("../../models");
-const service = require("../../service");
+const { User } = require("@models");
+const service = require("@service");
 const asyncHandler = require("express-async-handler");
 
 const verifyEmail = async (req, res) => {
@@ -13,6 +13,11 @@ const verifyEmail = async (req, res) => {
     verify: true,
     verificationToken: "",
   });
-  res.status(200).json({ message: "Verification successful" });
+
+  const token = service.getToken(user);
+
+  res
+    .status(200)
+    .json({ status: 200, message: "Verification successful", token: token });
 };
 module.exports = { verifyEmail: asyncHandler(verifyEmail) };

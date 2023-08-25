@@ -1,12 +1,17 @@
-const { User } = require("../../models");
-const service = require("../../service");
+const { User } = require("@models");
+const service = require("@service");
 const bcrypt = require("bcrypt");
 const gravatar = require("gravatar");
 const { v4: uuidv4 } = require("uuid");
 const asyncHandler = require("express-async-handler");
 
 const register = async (req, res) => {
-  const { email, password } = req.body;
+  const { email, password, userName } = req.body;
+  service.CheckByError(
+    !email || !password || !userName,
+    400,
+    "Please provide all necessary data"
+  );
 
   const user = await User.findOne({ email });
 
@@ -25,15 +30,12 @@ const register = async (req, res) => {
     verificationToken,
   });
 
-  const verifyEmail = {
-    to: email,
-    subject: "Verify email",
-    html: `<a target="_blank" href="${process.env.BASE_URL}/verify/${verificationToken}">Click verify email</a>`,
-  };
+  const verifyEmail = service.getVerifyEmail(email, verificationToken);
 
   await service.sendEmail(verifyEmail);
 
   res.status(200).json({
+    status: 200,
     user: {
       email: newUser.email,
     },

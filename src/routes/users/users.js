@@ -1,7 +1,8 @@
 const express = require("express");
-const middleW = require("../../middlewares");
-const { schemas } = require("../../schemas");
-const { usersCtrl } = require("../../controllers");
+require("module-alias/register");
+const middleW = require("@middleware");
+const { schemas } = require("@schemas");
+const { usersCtrl } = require("@controllers");
 
 const router = express.Router();
 
@@ -26,7 +27,13 @@ router.post(
 
 router.get("/current", middleW.authenticate, usersCtrl.getCurrent);
 
-router.patch("/user", middleW.authenticate);
+router.patch(
+  "/user",
+  middleW.authenticate,
+  middleW.uploadAvatar.single("avatar"),
+  middleW.validateUpdateBody(schemas.updateSchema),
+  usersCtrl.updateUser
+);
 
 router.post("/logout", middleW.authenticate, usersCtrl.logOut);
 

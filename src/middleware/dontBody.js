@@ -1,4 +1,4 @@
-const service = require("../service");
+const service = require("@service");
 
 const dontBody = (req, res, next) => {
   if (Object.keys(req.body).length === 0) {

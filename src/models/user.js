@@ -1,12 +1,12 @@
 const { Schema, model } = require("mongoose");
-const { schemas } = require("../schemas");
-const service = require("../service");
-
+const { schemas } = require("@schemas");
+const service = require("@service");
 const userShema = new Schema(
   {
     userName: {
       type: String,
-      default: "",
+
+      required: [true, "Email is required"],
     },
 
     email: {
@@ -36,7 +36,7 @@ const userShema = new Schema(
       ],
       default: "",
     },
-    birthDay: { type: Date, default: Date.now },
+    birthDay: { type: String, default: "" },
 
     token: { type: String, default: null },
 

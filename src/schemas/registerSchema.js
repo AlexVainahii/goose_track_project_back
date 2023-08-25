@@ -9,7 +9,9 @@ const registerSchema = Joi.object({
     .pattern(emailRegexp)
     .required()
     .messages({ "any.required": "missing required email field" }),
-  userName: Joi.string(),
-  token: Joi.string(),
+  userName: Joi.string()
+    .min(3)
+    .max(40)
+    .messages({ "any.required": "missing required name field" }),
 });
 module.exports = { registerSchema };

@@ -5,16 +5,6 @@
   "engines": {
     "node": ">=14.20.1"
   },
-  "_moduleAliases": {
-    "@root": ".",
-    "@src": "./src",
-    "@controllers": "./src/controllers",
-    "@middleware": "./src/middleware",
-    "@routes": "./src/routes",
-    "@service": "./src/service",
-    "@models": "./src/models",
-    "@schemas": "./src/schemas"
-  },
   "scripts": {
     "test": "jest",
     "start": "cross-env NODE_ENV=production node ./server.js",
@@ -56,5 +46,15 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "5.2.0",
     "nodemon": "^3.0.1"
+  },
+  "_moduleAliases": {
+    "@root": ".",
+    "@src": "./src",
+    "@controllers": "./src/controllers",
+    "@middleware": "./src/middleware",
+    "@routes": "./src/routes",
+    "@service": "./src/service",
+    "@models": "./src/models",
+    "@schemas": "./src/schemas"
   }
 }

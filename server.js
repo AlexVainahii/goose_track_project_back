@@ -2,6 +2,7 @@ const app = require("./app");
 require("module-alias/register");
 const mongoose = require("mongoose");
 require("colors");
+mongoose.set("strictQuery", true);
 mongoose
   .connect(process.env.DB_HOST)
   .then(() => {

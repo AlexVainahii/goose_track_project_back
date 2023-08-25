@@ -10,8 +10,9 @@
       "@routes": ["./src/routes"],
       "@service": ["./src/service"],
       "@models": ["./src/models"],
-      "@schemas": ["./src/schemas"]
+      "@schemas": ["./src/schemas"],
+      "@helpers": ["./src/helpers"]
     }
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*", "app.js"]
 }

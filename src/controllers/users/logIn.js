@@ -1,7 +1,6 @@
-const { User } = require("../../models");
-const service = require("../../service");
+const { User } = require("@models");
+const service = require("@service");
 const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
 const asyncHandler = require("express-async-handler");
 
 const logIn = async (req, res) => {
@@ -16,13 +15,11 @@ const logIn = async (req, res) => {
 
   service.CheckByError(!passwordCompare, 401, "Email or password is wrong");
 
-  const payload = {
-    id: user._id,
-  };
+  const token = service.getToken(user);
 
-  const token = jwt.sign(payload, process.env.SECRET_KEY, { expiresIn: "23h" });
   await User.findByIdAndUpdate(user._id, { token });
   res.status(200).json({
+    status: 200,
     token: token,
     user: { email: user.email },
   });
