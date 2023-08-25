@@ -1,7 +1,12 @@
 const express = require("express");
 const logger = require("morgan");
 const cors = require("cors");
-const { usersRouter, reviewsRouter, tasksRouter } = require("./src/routes");
+const {
+  usersRouter,
+  reviewsRouter,
+  tasksRouter,
+  docsRouter,
+} = require("./src/routes");
 require("dotenv").config();
 const app = express();
 const formatsLogger = app.get("env") === "development" ? "dev" : "short";
@@ -14,6 +19,7 @@ app.use(express.static("public"));
 app.use("/", usersRouter);
 app.use("/tasks", tasksRouter);
 app.use("/reviews", reviewsRouter);
+app.use("/docs", docsRouter);
 
 app.use((req, res) => {
   res.status(404).json({ message: "Not found" });

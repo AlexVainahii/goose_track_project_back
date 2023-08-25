@@ -34,8 +34,8 @@ const register = async (req, res) => {
 
   await service.sendEmail(verifyEmail);
 
-  res.status(200).json({
-    status: 200,
+  res.status(201).json({
+    status: 201,
     user: {
       email: newUser.email,
     },
