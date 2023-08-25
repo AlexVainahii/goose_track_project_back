@@ -1,15 +1,42 @@
 const { Schema, model } = require("mongoose");
 const service = require("../service");
+const { schemas } = require("../schemas");
 
 const taskShema = new Schema(
   {
-    owner: {},
-    title: {},
-    start: {},
-    end: {},
-    priority: {},
-    date: {},
-    category: {},
+    title: {
+      type: String,
+      required: [true, "Task title is required"],
+      max: 250,
+    },
+    start: {
+      type: String,
+      required: [true, "Start time is required"],
+      match: [schemas.timeRegexp, "Start time do not match"],
+    },
+    end: {
+      type: String,
+      required: [true, "End time is required"],
+      match: [schemas.timeRegexp, "End time do not match"],
+    },
+    priority: {
+      type: String,
+      required: [true, "Priority is required"],
+      enum: ["LOW", "MEDIUM", "HIGH"],
+    },
+    date: {
+      type: Date,
+      required: [true, "Date is required"],
+    },
+    category: {
+      type: String,
+      required: [true, "Category is required"],
+      enum: ["TODO", "INPROGRESS", "DONE"],
+    },
+    owner: {
+      type: Schema.Types.ObjectId,
+      ref: "user",
+    },
   },
   { versionKey: false, timestamps: true }
 );
