@@ -2,21 +2,21 @@ const express = require("express");
 
 const MW = require("@middleware");
 const { tasksCtrl } = require("@controllers");
-const schemas = require("@schemas");
+const {schemas} = require("@schemas");
 
 const router = express.Router();
 
 router.get(
   "/",
   MW.authenticate,
-  MW.validateBody(schemas.getMonthTasks),
+  MW.validateBody(schemas.getMonthTasksSchema),
   tasksCtrl.getMonthTasks
 );
 
 router.post(
   "/",
   MW.authenticate,
-  MW.validateBody(schemas.postTask),
+  MW.validateBody(schemas.postTaskSchema),
   tasksCtrl.postTask
 );
 
@@ -24,7 +24,7 @@ router.patch(
   "/:id",
   MW.isValidId,
   MW.authenticate,
-  MW.validateBody(schemas.patchTask),
+  MW.validateBody(schemas.patchTaskSchema),
   tasksCtrl.patchTask
 );
 

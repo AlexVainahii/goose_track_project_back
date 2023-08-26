@@ -2,10 +2,10 @@ const service = require("@service");
 
 const validateBody = (schema) => {
   const func = (req, res, next) => {
-    service.CheckByError(req.body === {}, 400, "missing required field11");
+    service.CheckByError(req.body === {}, 400, "missing required fields");
     const { error } = schema.validate(req.body);
 
-    service.CheckByError(error, 400, "missing required field");
+    service.CheckByError(error, 400, `missing required field ${error?.message}`);
     next();
   };
 
