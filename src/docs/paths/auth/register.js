@@ -13,9 +13,9 @@ module.exports = {
             type: "object",
             required: ["name", "email", "password"],
             properties: {
-              Username: {
+              userName: {
                 type: "string",
-                description: "Username",
+                description: "userName",
                 example: "Stepan Bandera",
               },
               email: {
@@ -47,15 +47,18 @@ module.exports = {
                 {
                   properties: {
                     code: {
+                      type: "number",
                       example: 201,
                     },
-                    data: {
-                      $ref: "#/components/schemas/User",
-                    },
-                    token: {
-                      type: "string",
-                      description: "Backend-generated unique json web token",
-                      example: "adsjkasnxz.csdcdfgdvgfhgfdcs.saxsa",
+                    user: {
+                      type: "object",
+                      properties: {
+                        email: {
+                          type: "string",
+                          description: "E-mail address",
+                          example: "stepan@gmail.com",
+                        },
+                      },
                     },
                   },
                 },

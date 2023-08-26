@@ -21,8 +21,7 @@ module.exports = {
       avatarURL: {
         type: "string",
         description: "User's avatar URL",
-        example:
-          "https://s.gravatar.com/avatar/068de491621f7023bb5f8b3d473f50a3?s=250",
+        example: "//www.gravatar.com/avatar/0a08d09dddb03a5f849d318113397e40",
       },
       phone: {
         type: "string",
@@ -38,6 +37,31 @@ module.exports = {
         type: "string",
         description: "User's  birthDay",
         example: "11/11/1995",
+      },
+      verify: {
+        type: "boolean",
+        description: "Is verify email",
+        example: true,
+      },
+      verificationToken: {
+        type: "string",
+        description: "Is verificationToken in email",
+        example: "80e09a28-0891-4c00-8e1e-ecb3392c6647",
+      },
+      token: {
+        type: "string",
+        description: "Backend-generated unique json web token",
+        example: "adsjkasnxz.csdcdfgdvgfhgfdcs.saxsa",
+      },
+      createdAt: {
+        type: "string",
+        description: "Data&Time create User",
+        example: "2023-08-25T18:01:01.709Z",
+      },
+      updatedAt: {
+        type: "string",
+        description: "Data&Time update User",
+        example: "2023-08-25T23:33:49.514Z",
       },
     },
   },

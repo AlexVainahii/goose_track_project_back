@@ -18,10 +18,12 @@ const logIn = async (req, res) => {
   const token = service.getToken(user);
 
   await User.findByIdAndUpdate(user._id, { token });
+
+  const { password: _, ...userWithoutPassword } = user.toObject();
+
   res.status(200).json({
     status: 200,
-    token: token,
-    user: { email: user.email },
+    user: { ...userWithoutPassword, token: token },
   });
 };
 
