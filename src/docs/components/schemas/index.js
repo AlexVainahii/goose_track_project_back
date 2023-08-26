@@ -1,7 +1,7 @@
 const User = require("./User");
 const SuccessResponse = require("./SuccessResponse");
 module.exports = {
-  schema: {
+  schemas: {
     ...User,
     ...SuccessResponse,
   },

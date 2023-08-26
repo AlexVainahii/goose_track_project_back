@@ -15,7 +15,7 @@ const register = async (req, res) => {
 
   const user = await User.findOne({ email });
 
-  service.CheckByError(user, 409, "Email in use");
+  service.CheckByError(user, 409, "Provided email already exists");
 
   const hashPassword = await bcrypt.hash(password, 10);
 
