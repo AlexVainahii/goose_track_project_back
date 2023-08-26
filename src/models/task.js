@@ -39,7 +39,7 @@ const taskShema = new Schema(
       ref: "user",
     },
   },
-  { versionKey: false, timestamps: true }
+  { versionKey: false}
 );
 
 taskShema.post("save", service.handleMongooseError);
