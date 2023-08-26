@@ -7,9 +7,12 @@ const logIn = async (req, res) => {
   const { email, password } = req.body;
   const user = await User.findOne({ email });
 
+  const { userName, avatarURL, phone, skype, birthDay, createdAt, updatedAt } =
+    user;
+
   service.CheckByError(!user, 401, "Email or password is wrong");
 
-  service.CheckByError(!user.verify, 401, "Email not verified");
+  // service.CheckByError(!user.verify, 401, "Email not verified");
 
   const passwordCompare = await bcrypt.compare(password, user.password);
 
@@ -19,11 +22,22 @@ const logIn = async (req, res) => {
 
   await User.findByIdAndUpdate(user._id, { token });
 
-  const { password: _, ...userWithoutPassword } = user.toObject();
+  const userData = {
+    email,
+    userName,
+    avatarURL,
+    phone,
+    skype,
+    birthDay,
+    createdAt,
+    updatedAt,
+  };
 
   res.status(200).json({
     status: 200,
-    user: { ...userWithoutPassword, token: token },
+    message: "success",
+    user: userData,
+    token: token,
   });
 };
 

@@ -38,21 +38,7 @@ module.exports = {
         description: "User's  birthDay",
         example: "11/11/1995",
       },
-      verify: {
-        type: "boolean",
-        description: "Is verify email",
-        example: true,
-      },
-      verificationToken: {
-        type: "string",
-        description: "Is verificationToken in email",
-        example: "80e09a28-0891-4c00-8e1e-ecb3392c6647",
-      },
-      token: {
-        type: "string",
-        description: "Backend-generated unique json web token",
-        example: "adsjkasnxz.csdcdfgdvgfhgfdcs.saxsa",
-      },
+
       createdAt: {
         type: "string",
         description: "Data&Time create User",

@@ -35,13 +35,24 @@ module.exports = {
           "application/json": {
             schema: {
               type: "object",
-
-              properties: {
-                data: {
-                  type: "object",
-                  $ref: "#/components/schemas/User",
+              allOf: [
+                {
+                  $ref: "#/components/schemas/SuccessResponse",
                 },
-              },
+                {
+                  properties: {
+                    data: {
+                      type: "object",
+                      $ref: "#/components/schemas/User",
+                    },
+                    token: {
+                      type: "string",
+                      description: "Backend-generated unique json web token",
+                      example: "adsjkasnxz.csdcdfgdvgfhgfdcs.saxsa",
+                    },
+                  },
+                },
+              ],
             },
           },
         },
