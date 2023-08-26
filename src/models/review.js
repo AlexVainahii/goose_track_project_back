@@ -15,7 +15,7 @@ const reviewShema = new Schema(
       ref: "user",
     },
   },
-  { versionKey: false, timestamps: true }
+  { versionKey: false }
 );
 
 reviewShema.post("save", service.handleMongooseError);
