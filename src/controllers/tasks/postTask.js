@@ -14,7 +14,6 @@ const postTask = async (req, res) => {
   const newTask = await Task.create(
     { owner, ...req.body, priority, category },
   );
-  console.log(newTask);
   newTask.owner = undefined;
   res.status(201).json(newTask);
 };

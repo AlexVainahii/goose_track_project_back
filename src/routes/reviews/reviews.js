@@ -2,7 +2,7 @@ const express = require("express");
 
 const { reviewsCtrl } = require("@controllers");
 const MW = require("@middleware");
-const schemas = require("@schemas");
+const {schemas} = require("@schemas");
 
 const router = express.Router();
 
@@ -13,14 +13,14 @@ router.get("/own", MW.authenticate, reviewsCtrl.getOwnRev);
 router.post(
   "/own",
   MW.authenticate,
-  MW.validateBody(schemas.postOwnRev),
+  MW.validateBody(schemas.postReviewSchema),
   reviewsCtrl.postOwnRev
 );
 
 router.patch(
   "/own",
   MW.authenticate,
-  MW.validateBody(schemas.patchOwnRev),
+  MW.validateBody(schemas.patchReviewSchema),
   reviewsCtrl.patchOwnRev
 );
 
