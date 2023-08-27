@@ -10,6 +10,14 @@ const validateBody = (schema) => {
     const { error } = schema.validate(req.body);
 
     service.CheckByError(error, 400, "Bad request (invalid request body)");
+    service.CheckByError(req.body === {}, 400, "missing required fields");
+    const { error } = schema.validate(req.body);
+
+    service.CheckByError(
+      error,
+      400,
+      `missing required field ${error?.message}`
+    );
     next();
   };
 

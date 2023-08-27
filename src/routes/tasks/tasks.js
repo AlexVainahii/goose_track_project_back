@@ -1,15 +1,38 @@
 const express = require("express");
+
+const MW = require("@middleware");
+const { tasksCtrl } = require("@controllers");
+const {schemas} = require("@schemas");
+
 const router = express.Router();
-const MV = require("../../middleware");
 
-const { tasksCtrl } = require("../../controllers");
+router.get(
+  "/",
+  MW.authenticate,
+  MW.validateBody(schemas.getMonthTasksSchema),
+  tasksCtrl.getMonthTasks
+);
 
-router.get("/", MV.authenticate, tasksCtrl.getMonthTasks);
+router.post(
+  "/",
+  MW.authenticate,
+  MW.validateBody(schemas.postTaskSchema),
+  tasksCtrl.postTask
+);
 
-router.post("/", MV.authenticate, tasksCtrl.postTask);
+router.patch(
+  "/:id",
+  MW.isValidId,
+  MW.authenticate,
+  MW.validateBody(schemas.patchTaskSchema),
+  tasksCtrl.patchTask
+);
 
-router.patch("/:id", MV.authenticate, tasksCtrl.patchTask);
-
-router.delete("/:id", MV.authenticate, tasksCtrl.deleteTask);
+router.delete(
+  "/:id",
+  MW.isValidId,
+  MW.authenticate,
+  tasksCtrl.deleteTask
+);
 
 module.exports = router;

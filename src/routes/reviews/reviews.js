@@ -1,17 +1,29 @@
 const express = require("express");
-const { reviewsCtrl } = require("../../controllers");
-const MV = require("../../middleware");
+
+const { reviewsCtrl } = require("@controllers");
+const MW = require("@middleware");
+const {schemas} = require("@schemas");
 
 const router = express.Router();
 
 router.get("/", reviewsCtrl.getAllRev);
 
-router.get("/own", MV.authenticate, reviewsCtrl.getOwnRev);
+router.get("/own", MW.authenticate, reviewsCtrl.getOwnRev);
 
-router.post("/own", MV.authenticate, reviewsCtrl.postOwnRev);
+router.post(
+  "/own",
+  MW.authenticate,
+  MW.validateBody(schemas.postReviewSchema),
+  reviewsCtrl.postOwnRev
+);
 
-router.patch("/own", MV.authenticate, reviewsCtrl.patchOwnRev);
+router.patch(
+  "/own",
+  MW.authenticate,
+  MW.validateBody(schemas.patchReviewSchema),
+  reviewsCtrl.patchOwnRev
+);
 
-router.delete("/own", MV.authenticate, reviewsCtrl.deleteOwnRev);
+router.delete("/own", MW.authenticate, reviewsCtrl.deleteOwnRev);
 
 module.exports = router;

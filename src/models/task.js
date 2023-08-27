@@ -25,8 +25,9 @@ const taskShema = new Schema(
       enum: ["LOW", "MEDIUM", "HIGH"],
     },
     date: {
-      type: Date,
+      type: String,
       required: [true, "Date is required"],
+      match: [schemas.dateRegexp, "Date do not match"],
     },
     category: {
       type: String,
@@ -38,7 +39,7 @@ const taskShema = new Schema(
       ref: "user",
     },
   },
-  { versionKey: false, timestamps: true }
+  { versionKey: false}
 );
 
 taskShema.post("save", service.handleMongooseError);
