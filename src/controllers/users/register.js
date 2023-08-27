@@ -10,7 +10,7 @@ const register = async (req, res) => {
   service.CheckByError(
     !email || !password || !userName,
     400,
-    "Please provide all necessary data"
+    "Bad request (invalid request body)"
   );
 
   const user = await User.findOne({ email });
