@@ -26,6 +26,7 @@ module.exports = {
               rating: {
                 type: "string",
                 description: "rating",
+                enum: [1, 2, 3, 4, 5],
                 example: 5,
               },
             },

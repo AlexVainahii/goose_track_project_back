@@ -22,7 +22,8 @@ module.exports = {
               date: {
                 type: "string",
                 description: "current date",
-                example: "2023-09-01",
+                example: "2023-09",
+                pattern: "^20dd-(0[1-9]|1[012])$",
               },
             },
           },
@@ -47,35 +48,38 @@ module.exports = {
                       example: 200,
                     },
                     data: {
-                      type: "object",
-                      properties: {
-                        _id: {
-                          type: "ObjectId",
-                          example: "64e9e9baa80ec244444c5cc5",
-                        },
-                        title: {
-                          type: "string",
-                          example: "Some task",
-                        },
-                        start: {
-                          type: "string",
-                          example: "13:13",
-                        },
-                        end: {
-                          type: "string",
-                          example: "14:14",
-                        },
-                        priority: {
-                          type: "string",
-                          example: "MEDIUM",
-                        },
-                        date: {
-                          type: "string",
-                          example: "2023-09-01",
-                        },
-                        category: {
-                          type: "string",
-                          example: "TODO",
+                      type: "array",
+                      items: {
+                        type: "object",
+                        properties: {
+                          _id: {
+                            type: "ObjectId",
+                            example: "64e9e9baa80ec244444c5cc5",
+                          },
+                          title: {
+                            type: "string",
+                            example: "Some task",
+                          },
+                          start: {
+                            type: "string",
+                            example: "13:13",
+                          },
+                          end: {
+                            type: "string",
+                            example: "14:14",
+                          },
+                          priority: {
+                            type: "string",
+                            example: "MEDIUM",
+                          },
+                          date: {
+                            type: "string",
+                            example: "2023-09-01",
+                          },
+                          category: {
+                            type: "string",
+                            example: "TODO",
+                          },
                         },
                       },
                     },
