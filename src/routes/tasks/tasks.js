@@ -1,8 +1,8 @@
 const express = require("express");
 
-const MW = require("@middleware");
+const MW = require("@middlewares");
 const { tasksCtrl } = require("@controllers");
-const {schemas} = require("@schemas");
+const { schemas } = require("@schemas");
 
 const router = express.Router();
 
@@ -28,11 +28,6 @@ router.patch(
   tasksCtrl.patchTask
 );
 
-router.delete(
-  "/:id",
-  MW.isValidId,
-  MW.authenticate,
-  tasksCtrl.deleteTask
-);
+router.delete("/:id", MW.isValidId, MW.authenticate, tasksCtrl.deleteTask);
 
 module.exports = router;

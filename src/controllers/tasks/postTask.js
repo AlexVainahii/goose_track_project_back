@@ -1,4 +1,4 @@
-const { CheckByError } = require("@service");
+const { CheckByError } = require("@helpers");
 const { Task } = require("@models");
 
 const postTask = async (req, res) => {
@@ -11,9 +11,7 @@ const postTask = async (req, res) => {
     406,
     "Start time must be lower then end time"
   );
-  const newTask = await Task.create(
-    { owner, ...req.body, priority, category },
-  );
+  const newTask = await Task.create({ owner, ...req.body, priority, category });
   newTask.owner = undefined;
   res.status(201).json(newTask);
 };

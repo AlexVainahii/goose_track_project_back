@@ -1,17 +1,16 @@
 const { Schema, model } = require("mongoose");
-const { schemas } = require("@schemas");
-const service = require("@service");
-const userShema = new Schema(
+const helpers = require("@helpers");
+const userSchema = new Schema(
   {
     userName: {
       type: String,
 
-      required: [true, "Email is required"],
+      required: [true, "UserName is required"],
     },
 
     email: {
       type: String,
-      match: schemas.emailRegexp,
+      match: helpers.emailRegexp,
       required: [true, "Email is required"],
       unique: true,
     },
@@ -23,7 +22,7 @@ const userShema = new Schema(
     phone: {
       type: String,
       match: [
-        schemas.phoneRegexp,
+        helpers.phoneRegexp,
         "Invalid phone number format. Please fill a valid phone number (000) 000-0000.",
       ],
       default: "",
@@ -31,7 +30,7 @@ const userShema = new Schema(
     skype: {
       type: String,
       match: [
-        schemas.phoneRegexp,
+        helpers.phoneRegexp,
         "Invalid skype phone number format. Please fill a valid phone number (000) 000-0000.",
       ],
       default: "",
@@ -54,8 +53,8 @@ const userShema = new Schema(
   { versionKey: false, timestamps: true }
 );
 
-userShema.post("save", service.handleMongooseError);
+userSchema.post("save", helpers.handleMongooseError);
 
-const User = model("user", userShema);
+const User = model("user", userSchema);
 
 module.exports = { User };

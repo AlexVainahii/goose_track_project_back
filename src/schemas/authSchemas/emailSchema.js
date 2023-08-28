@@ -1,5 +1,5 @@
 const Joi = require("joi");
-const { emailRegexp } = require("./regexp");
+const { emailRegexp } = require("@helpers");
 const emailSchema = Joi.object({
   email: Joi.string()
     .trim()

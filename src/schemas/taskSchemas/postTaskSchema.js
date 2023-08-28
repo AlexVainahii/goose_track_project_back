@@ -1,5 +1,5 @@
 const Joi = require("joi");
-const { timeRegexp, dateRegexp } = require("../regexp");
+const { timeRegexp, dateRegexp } = require("@helpers");
 
 const postTaskSchema = Joi.object({
   title: Joi.string()

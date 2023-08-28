@@ -1,13 +1,10 @@
 const {
-  phoneRegexp,
-  emailRegexp,
-  timeRegexp,
-  dateRegexp,
-} = require("./regexp");
-const { registerSchema } = require("./registerSchema");
-const { emailSchema } = require("./emailSchema");
-const { loginSchema } = require("./loginSchema");
-const { updateSchema } = require("./updateSchema");
+  registerSchema,
+  emailSchema,
+  loginSchema,
+  updateSchema,
+} = require("./authSchemas");
+
 const {
   getMonthTasksSchema,
   patchTaskSchema,
@@ -15,10 +12,6 @@ const {
 } = require("./taskSchemas");
 const { postReviewSchema, patchReviewSchema } = require("./reviewSchemas");
 const schemas = {
-  phoneRegexp,
-  emailRegexp,
-  timeRegexp,
-  dateRegexp,
   registerSchema,
   emailSchema,
   loginSchema,

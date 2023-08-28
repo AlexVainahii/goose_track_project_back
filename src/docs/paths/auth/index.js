@@ -3,4 +3,5 @@ module.exports = {
   "/login": require("./logIn"),
   "/logout": require("./logOut"),
   "/current": require("./current"),
+  "/user": require("./updateUser"),
 };

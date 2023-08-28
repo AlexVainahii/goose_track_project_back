@@ -1,4 +1,4 @@
-const { CheckByError } = require("@service");
+const { CheckByError } = require("@helpers");
 const { Review } = require("@models");
 
 const patchOwnRev = async (req, res) => {

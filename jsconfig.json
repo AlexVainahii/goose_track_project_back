@@ -6,9 +6,9 @@
       "@root": ["."],
       "@src": ["./src"],
       "@controllers": ["./src/controllers"],
-      "@middleware": ["./src/middleware"],
+      "@middlewares": ["src/middlewares"],
       "@routes": ["./src/routes"],
-      "@service": ["./src/service"],
+      "@services": ["src/services"],
       "@models": ["./src/models"],
       "@schemas": ["./src/schemas"],
       "@helpers": ["./src/helpers"]
