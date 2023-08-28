@@ -1,13 +1,17 @@
-const service = require("@service");
+const helpers = require("@helpers");
 
 const validateUpdateBody = (schema) => {
   const func = (req, res, next) => {
-    service.CheckByError(req.body === {}, 400, "missing required field11");
+    helpers.CheckByError(
+      req.body === {},
+      400,
+      "Bad request (invalid request body)"
+    );
     const { error } = schema.validate(req.body);
     if (error) {
       const errorMessages = error.details.map((detail) => detail.message);
       console.log("errorMessages :>> ", errorMessages);
-      service.CheckByError(error, 400, errorMessages);
+      helpers.CheckByError(error, 400, errorMessages);
     }
     next();
   };

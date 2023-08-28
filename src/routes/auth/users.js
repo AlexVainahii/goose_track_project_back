@@ -1,6 +1,6 @@
 const express = require("express");
 require("module-alias/register");
-const middleW = require("@middleware");
+const middleW = require("@middlewares");
 const { schemas } = require("@schemas");
 const { usersCtrl } = require("@controllers");
 
@@ -30,8 +30,8 @@ router.get("/current", middleW.authenticate, usersCtrl.getCurrent);
 router.patch(
   "/user",
   middleW.authenticate,
-  middleW.dontBody,
   middleW.uploadAvatar.single("avatar"),
+  middleW.dontBody,
   middleW.validateUpdateBody(schemas.updateSchema),
   usersCtrl.updateUser
 );

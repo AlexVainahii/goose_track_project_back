@@ -1,5 +1,5 @@
 const { Schema, model } = require("mongoose");
-const service = require("@service");
+const helpers = require("@helpers");
 
 const reviewShema = new Schema(
   {
@@ -18,7 +18,7 @@ const reviewShema = new Schema(
   { versionKey: false }
 );
 
-reviewShema.post("save", service.handleMongooseError);
+reviewShema.post("save", helpers.handleMongooseError);
 
 const Review = model("review", reviewShema);
 

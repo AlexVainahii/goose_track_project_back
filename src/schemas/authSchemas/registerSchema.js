@@ -1,5 +1,5 @@
 const Joi = require("joi");
-const { emailRegexp } = require("./regexp");
+const { emailRegexp } = require("@helpers");
 const registerSchema = Joi.object({
   password: Joi.string().min(4).required().messages({
     "any.required": "Bad request (invalid request body)",

@@ -1,5 +1,5 @@
 const Joi = require("joi");
-const { timeRegexp, dateRegexp } = require("../regexp");
+const { timeRegexp, dateRegexp } = require("@helpers");
 
 const patchTaskSchema = Joi.object({
   title: Joi.string().max(250),

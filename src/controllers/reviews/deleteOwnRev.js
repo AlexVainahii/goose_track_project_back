@@ -1,5 +1,5 @@
 const { Review } = require("@models");
-const { CheckByError } = require("@service");
+const { CheckByError } = require("@helpers");
 
 const deleteOwnRev = async (req, res) => {
   const owner = req.user._id;

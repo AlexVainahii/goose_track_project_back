@@ -1,8 +1,8 @@
 const express = require("express");
 
 const { reviewsCtrl } = require("@controllers");
-const MW = require("@middleware");
-const {schemas} = require("@schemas");
+const MW = require("@middlewares");
+const { schemas } = require("@schemas");
 
 const router = express.Router();
 

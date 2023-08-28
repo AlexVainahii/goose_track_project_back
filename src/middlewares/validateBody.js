@@ -1,19 +1,17 @@
-const service = require("@service");
+const helpers = require("@helpers");
 
 const validateBody = (schema) => {
   const func = (req, res, next) => {
-    service.CheckByError(
+    helpers.CheckByError(
       req.body === {},
       400,
       "Bad request (invalid request body)"
     );
     const { error } = schema.validate(req.body);
 
-    service.CheckByError(error, 400, "Bad request (invalid request body)");
-    service.CheckByError(req.body === {}, 400, "missing required fields");
-    const { error } = schema.validate(req.body);
+    // helpers.CheckByError(error, 400, "Bad request (invalid request body)");
 
-    service.CheckByError(
+    helpers.CheckByError(
       error,
       400,
       `missing required field ${error?.message}`

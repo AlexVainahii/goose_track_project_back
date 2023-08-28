@@ -1,5 +1,5 @@
 const { Task } = require("@models");
-const { CheckByError } = require("@service");
+const { CheckByError } = require("@helpers");
 
 const deleteTask = async (req, res) => {
   const { id } = req.params;

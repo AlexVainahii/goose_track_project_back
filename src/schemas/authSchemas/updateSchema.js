@@ -1,5 +1,5 @@
 const Joi = require("joi");
-const { emailRegexp, phoneRegexp } = require("./regexp");
+const { emailRegexp, phoneRegexp } = require("@helpers");
 const updateSchema = Joi.object({
   password: Joi.string().min(4).optional(),
 
