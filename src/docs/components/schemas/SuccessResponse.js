@@ -16,20 +16,7 @@ module.exports = {
           },
         },
       },
-      {
-        properties: {
-          code: {
-            type: "integer",
-            description: "Server response status code",
-            example: 204,
-          },
-          message: {
-            type: "string",
-            description: "Server response message",
-            example: "No content",
-          },
-        },
-      },
+      {},
     ],
   },
 };
