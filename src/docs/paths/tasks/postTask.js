@@ -70,7 +70,7 @@ module.exports = {
                       type: "number",
                       example: 201,
                     },
-                    task: {
+                    data: {
                       type: "object",
                       properties: {
                         _id: {
