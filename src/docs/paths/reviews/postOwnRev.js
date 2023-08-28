@@ -50,7 +50,7 @@ module.exports = {
                       type: "number",
                       example: 201,
                     },
-                    review: {
+                    data: {
                       type: "object",
                       properties: {
                         _id: {

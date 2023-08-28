@@ -26,7 +26,7 @@ module.exports = {
                       type: "number",
                       example: 200,
                     },
-                    review: {
+                    data: {
                       type: "object",
                       properties: {
                         _id: {
