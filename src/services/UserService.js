@@ -1,5 +1,4 @@
 const bcrypt = require("bcrypt");
-const gravatar = require("gravatar");
 const { User } = require("@models");
 const { v4: uuidv4 } = require("uuid");
 const helpers = require("@helpers");
@@ -14,25 +13,30 @@ class UserService {
 
     const hashPassword = await bcrypt.hash(password, 10);
 
-    const avatarURL = gravatar.url(email);
-
     const verificationToken = uuidv4();
-    console.log("hashPassword :>> ", {
-      email,
-      userName,
-      password: hashPassword,
-      avatarURL,
-      verificationToken,
-    });
+
     const newUser = await User.create({
       email,
       userName,
       password: hashPassword,
-      avatarURL,
       verificationToken,
     });
 
-    return newUser;
+    const token = getToken(newUser);
+
+    return {
+      email: newUser.email,
+      userName: newUser.userName,
+      avatarURL: newUser.avatarURL,
+      phone: newUser.phone,
+      skype: newUser.skype,
+      birthDay: newUser.birthDay,
+      token: token,
+      createdAt: newUser.createdAt,
+      updatedAt: newUser.updatedAt,
+      verificationToken: newUser.verificationToken,
+      verify: newUser.verify,
+    };
   }
 
   async login({ email, password }) {
@@ -50,7 +54,7 @@ class UserService {
 
     helpers.CheckByError(!user, 401, "Email or password is wrong");
 
-    helpers.CheckByError(!user.verify, 401, "Email not verified");
+    // helpers.CheckByError(!user.verify, 401, "Email not verified");
 
     const passwordCompare = await bcrypt.compare(password, user.password);
 

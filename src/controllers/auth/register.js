@@ -11,7 +11,7 @@ const register = async (req, res) => {
     400,
     "Bad request (invalid request body)"
   );
-  console.log("email :>> ", email);
+
   const user = await UserService.register({ email, password, userName });
 
   const verifyEmail = helpers.getVerifyEmail(
