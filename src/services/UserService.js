@@ -23,7 +23,7 @@ class UserService {
     });
 
     const token = getToken(newUser);
-
+    await User.findByIdAndUpdate(newUser._id, { token });
     return {
       email: newUser.email,
       userName: newUser.userName,
