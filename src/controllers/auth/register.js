@@ -26,6 +26,7 @@ const register = async (req, res) => {
     status: 201,
     message: "success",
     user,
+    token: user.token,
   });
 };
 
