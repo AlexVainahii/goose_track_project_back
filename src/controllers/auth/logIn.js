@@ -9,6 +9,7 @@ const logIn = async (req, res) => {
     status: 200,
     message: "success",
     user: userData,
+    token: userData.token,
   });
 };
 
