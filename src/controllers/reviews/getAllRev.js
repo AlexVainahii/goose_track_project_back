@@ -16,7 +16,7 @@ const getAllRev = async (req, res) => {
     } = el;
     return { _id, review, rating, userName, avatarURL };
   });
-  res.json(modResult);
+  res.json({data:modResult, status:200});
 };
 
 module.exports = { getAllRev };

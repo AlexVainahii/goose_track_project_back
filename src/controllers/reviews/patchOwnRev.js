@@ -8,7 +8,7 @@ const patchOwnRev = async (req, res) => {
   });
   CheckByError(!result, 404);
   result.owner = undefined;
-  res.json(result);
+  res.json({data:result, status:200});
 };
 
 module.exports = { patchOwnRev };

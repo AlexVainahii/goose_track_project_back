@@ -6,7 +6,7 @@ const getOwnRev = async (req, res) => {
   const result = await Review.findOne({ owner });
   CheckByError(!result, 404);
   result.owner = undefined;
-  res.json(result);
+  res.json({data:result, status:200});
 };
 
 module.exports = { getOwnRev };
