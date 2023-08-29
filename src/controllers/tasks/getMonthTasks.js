@@ -8,7 +8,7 @@ const getMonthTasks = async (req, res) => {
     },
     "-owner"
   );
-  res.json(result);
+  res.json({data:result, status:200});
 };
 
 module.exports = { getMonthTasks };

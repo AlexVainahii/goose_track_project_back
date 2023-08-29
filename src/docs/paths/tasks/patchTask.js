@@ -66,12 +66,12 @@ module.exports = {
             schema: {
               type: "object",
               allOf: [
-                {
-                  $ref: "#/components/schemas/SuccessResponse",
-                },
+                // {
+                //   $ref: "#/components/schemas/SuccessResponse",
+                // },
                 {
                   properties: {
-                    code: {
+                    status: {
                       type: "number",
                       example: 200,
                     },
