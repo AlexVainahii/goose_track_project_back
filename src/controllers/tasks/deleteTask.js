@@ -6,7 +6,7 @@ const deleteTask = async (req, res) => {
   const result = await Task.findByIdAndRemove(id);
   CheckByError(!result, 404);
   result.owner = undefined;
-  res.status(204).json({data:result, status:204});
+  res.json({data:result, status:200});
 };
 
 module.exports = { deleteTask };
