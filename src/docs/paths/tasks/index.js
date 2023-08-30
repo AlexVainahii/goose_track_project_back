@@ -12,5 +12,5 @@ const deleteTask = require("./deleteTask");
 
 module.exports = {
   "/tasks": { ...getMonthTasks, ...postTask},
-  "/tasks/:id": {...patchTask, ...deleteTask },
+  "/tasks/{:id}": {...patchTask, ...deleteTask },
 };
