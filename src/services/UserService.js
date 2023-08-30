@@ -4,6 +4,7 @@ const { v4: uuidv4 } = require("uuid");
 const helpers = require("@helpers");
 const getToken = require("./getToken");
 const sendEmail = require("./sendEmail");
+const jwt = require("jsonwebtoken");
 
 class UserService {
   async register({ email, password, userName }) {
@@ -61,10 +62,18 @@ class UserService {
     const passwordCompare = await bcrypt.compare(password, user.password);
 
     helpers.CheckByError(!passwordCompare, 401, "Email or password is wrong");
+    let isToken = false;
+    let token = user.token;
+    try {
+      jwt.verify(user.token, process.env.SECRET_KEY);
+    } catch (error) {
+      isToken = true;
+    }
+    if (isToken) {
+      token = getToken(user);
+      await User.findByIdAndUpdate(user._id, { token });
+    }
 
-    const token = getToken(user);
-
-    await User.findByIdAndUpdate(user._id, { token });
     return {
       user: {
         email,
