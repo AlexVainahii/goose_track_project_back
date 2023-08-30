@@ -16,7 +16,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static("public"));
 
-app.use("/", usersRouter);
+app.use("/auth", usersRouter);
 app.use("/tasks", tasksRouter);
 app.use("/reviews", reviewsRouter);
 app.use("/", docsRouter);
