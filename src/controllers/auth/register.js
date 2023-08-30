@@ -1,6 +1,6 @@
 const services = require("@services");
+const { getEmail } = require("@helpers");
 const helpers = require("@helpers");
-
 const asyncHandler = require("express-async-handler");
 const { UserService } = require("@services");
 
@@ -12,21 +12,21 @@ const register = async (req, res) => {
     "Bad request (invalid request body)"
   );
 
-  const user = await UserService.register({ email, password, userName });
-
-  const verifyEmail = helpers.getVerifyEmail(
+  const { user, token } = await UserService.register({
     email,
-    user.verificationToken,
-    user.userName
-  );
+    password,
+    userName,
+  });
+
+  const verifyEmail = getEmail.registrationsConfirm(user.userName);
 
   await services.sendEmail(verifyEmail);
 
   res.status(201).json({
     status: 201,
     message: "success",
-    user,
-    token: user.token,
+    user: user,
+    token: token,
   });
 };
 

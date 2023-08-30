@@ -18,6 +18,12 @@ const updateUser = async (req, res, next) => {
     updatedFields.avatarURL = avatarURL;
   }
   await UserService.updated(_id, updatedFields);
-  res.status(200).json({ status: 200, message: "User updated successfully" });
+  res
+    .status(200)
+    .json({
+      status: 200,
+      message: "User updated successfully",
+      user: updatedFields,
+    });
 };
 module.exports = { updateUser: asyncHandler(updateUser) };
