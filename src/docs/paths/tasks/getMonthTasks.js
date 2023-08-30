@@ -14,27 +14,7 @@ module.exports = {
         $ref: "#/components/parameters/month",
       },
     ],
-    requestBody: {
-      description:
-        "An example of a request object for Get all user tasks for current month",
-      required: true,
-      content: {
-        "application/json": {
-          schema: {
-            type: "object",
-            required: ["month"],
-            properties: {
-              month: {
-                type: "string",
-                description: "current month",
-                example: "2023-09",
-                pattern: "^20dd-(0[1-9]|1[012])$",
-              },
-            },
-          },
-        },
-      },
-    },
+
     responses: {
       200: {
         description: "get all tasks for current month",
