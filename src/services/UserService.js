@@ -25,17 +25,19 @@ class UserService {
     const token = getToken(newUser);
     await User.findByIdAndUpdate(newUser._id, { token });
     return {
-      email: newUser.email,
-      userName: newUser.userName,
-      avatarURL: newUser.avatarURL,
-      phone: newUser.phone,
-      skype: newUser.skype,
-      birthDay: newUser.birthDay,
+      user: {
+        email: newUser.email,
+        userName: newUser.userName,
+        avatarURL: newUser.avatarURL,
+        phone: newUser.phone,
+        skype: newUser.skype,
+        birthDay: newUser.birthDay,
+        createdAt: newUser.createdAt,
+        updatedAt: newUser.updatedAt,
+        verificationToken: newUser.verificationToken,
+        verify: newUser.verify,
+      },
       token: token,
-      createdAt: newUser.createdAt,
-      updatedAt: newUser.updatedAt,
-      verificationToken: newUser.verificationToken,
-      verify: newUser.verify,
     };
   }
 
@@ -64,15 +66,17 @@ class UserService {
 
     await User.findByIdAndUpdate(user._id, { token });
     return {
-      email,
-      userName,
-      avatarURL,
-      phone,
-      skype,
-      birthDay,
+      user: {
+        email,
+        userName,
+        avatarURL,
+        phone,
+        skype,
+        birthDay,
+        createdAt,
+        updatedAt,
+      },
       token: token,
-      createdAt,
-      updatedAt,
     };
   }
 

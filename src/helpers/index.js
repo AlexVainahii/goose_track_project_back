@@ -9,8 +9,10 @@ const { CreateError } = require("./CreateError");
 const CheckByError = require("../helpers/CheckByError");
 const handleMongooseError = require("../helpers/handleMongooseError");
 const { errorMessageList } = require("./errorMessageList");
-const getVerifyEmail = require("./getVerifyEmail");
+const getEmail = require("./getEmail");
 const templateVerificationEmail = require("./templateVerificationEmail");
+const templateRegistrationEmail = require("./templateRegistrationEmail");
+const templateChangePassEmail = require("./templateChangePassEmail");
 
 module.exports = {
   dateRegexp,
@@ -22,6 +24,8 @@ module.exports = {
   handleMongooseError,
   CheckByError,
   errorMessageList,
-  getVerifyEmail,
+  getEmail,
   templateVerificationEmail,
+  templateRegistrationEmail,
+  templateChangePassEmail,
 };

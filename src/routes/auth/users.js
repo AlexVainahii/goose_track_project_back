@@ -13,10 +13,50 @@ router.post(
 );
 
 router.get("/", (req, res, next) => {
-  res.status(200).json({
-    message:
-      "Hello team Андрій Гадар, Ганна Тіль, Олександр Вайнагій, Андрій Ганзел, Сергій Серчинський,Андрій Кецко, Володимир Костенко, Юрій Клименко,Галина Карпінська,   Юрій Кагадій, Олександр Дерень,Ілля Сидор",
-  });
+  const namesAndCode = [
+    { name: "Андрій Гадар", code: "" },
+    { name: "Ганна Тіль", code: "" },
+    { name: "Олександр Вайнагій", code: "" },
+    { name: "Андрій Ганзел", code: "" },
+    { name: "Сергій Серчинський", code: "" },
+    { name: "Андрій Кецко", code: "" },
+    { name: "Володимир Костенко", code: "" },
+    { name: "Юрій Клименко", code: "" },
+    { name: "Галина Карпінська", code: "" },
+    { name: "Юрій Кагадій", code: "" },
+    { name: "Олександр Дерень", code: "" },
+  ];
+
+  const generateCircles = namesAndCode
+    .map((entry, index) => {
+      const rotation = index * (360 / namesAndCode.length) + 90;
+      return `
+        <div class="circle" style="transform: translate(-50%, -50%) rotate(${rotation}deg);">
+            <h2>${entry.name}</h2>
+            <div class="code">
+                ${entry.code}
+            </div>
+        </div>
+    `;
+    })
+    .join("");
+
+  const html = `
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Our Generation</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div class="circle-container">
+            ${generateCircles}
+        </div>
+    </body>
+    </html>
+`;
+
+  res.send(html);
 });
 
 router.post(

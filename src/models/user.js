@@ -49,6 +49,14 @@ const userSchema = new Schema(
       type: String,
       required: [true, "Verify token is required"],
     },
+    changePass: {
+      type: Boolean,
+      default: false,
+    },
+    changePassToken: {
+      type: String,
+      default: "",
+    },
   },
   { versionKey: false, timestamps: true }
 );
