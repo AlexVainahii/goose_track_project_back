@@ -4,7 +4,7 @@ const getMonthTasks = async (req, res) => {
   const result = await Task.find(
     {
       owner: req.user._id,
-      date: { $regex: req.query.date, $options: "i" },
+      date: { $regex: req.query.month, $options: "i" },
     },
     "-owner"
   );

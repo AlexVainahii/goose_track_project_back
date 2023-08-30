@@ -42,23 +42,15 @@ module.exports = {
               type: "object",
               allOf: [
                 {
-                  $ref: "#/components/schemas/SuccessResponse",
-                },
-                {
                   properties: {
                     code: {
                       type: "number",
                       example: 201,
                     },
+
                     user: {
                       type: "object",
-                      properties: {
-                        email: {
-                          type: "string",
-                          description: "E-mail address",
-                          example: "stepan@gmail.com",
-                        },
-                      },
+                      $ref: "#/components/schemas/User",
                     },
                   },
                 },

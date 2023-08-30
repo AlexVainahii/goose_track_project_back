@@ -9,6 +9,11 @@ module.exports = {
         BearerAuth: [],
       },
     ],
+    parameters: [
+      {
+        $ref: "#/components/parameters/month",
+      },
+    ],
     requestBody: {
       description:
         "An example of a request object for Get all user tasks for current month",
@@ -17,11 +22,11 @@ module.exports = {
         "application/json": {
           schema: {
             type: "object",
-            required: ["date"],
+            required: ["month"],
             properties: {
-              date: {
+              month: {
                 type: "string",
-                description: "current date",
+                description: "current month",
                 example: "2023-09",
                 pattern: "^20dd-(0[1-9]|1[012])$",
               },

@@ -27,7 +27,7 @@ module.exports = {
                       description: "Backend-generated unique json web token",
                       example: "adsjkasnxz.csdcdfgdvgfhgfdcs.saxsa",
                     },
-                    data: {
+                    user: {
                       $ref: "#/components/schemas/User",
                     },
                   },

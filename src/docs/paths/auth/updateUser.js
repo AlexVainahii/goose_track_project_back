@@ -21,7 +21,7 @@ module.exports = {
               name: {
                 type: "string",
                 description: "Username",
-                example: "John Smith",
+                example: "Stepan Bandera",
               },
             },
           },

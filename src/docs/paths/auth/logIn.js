@@ -37,11 +37,8 @@ module.exports = {
               type: "object",
               allOf: [
                 {
-                  $ref: "#/components/schemas/SuccessResponse",
-                },
-                {
                   properties: {
-                    data: {
+                    user: {
                       type: "object",
                       $ref: "#/components/schemas/User",
                     },
