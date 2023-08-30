@@ -11,10 +11,15 @@ module.exports = {
     ],
     parameters: [
       {
-        $ref: "#/components/parameters/month",
+        in: "query",
+        name: "month",
+        type: "string",
+        description: "current month",
+        required: true,
+        example: "2023-08",
+        pattern: "^20dd-(0[1-9]|1[012])$",
       },
     ],
-
     responses: {
       200: {
         description: "get all tasks for current month",
