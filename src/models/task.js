@@ -1,6 +1,6 @@
 const { Schema, model } = require("mongoose");
 const helpers = require("@helpers");
-const { schemas } = require("@schemas");
+const { timeRegexp, dateRegexp } = require("@helpers");
 
 const taskShema = new Schema(
   {
@@ -12,12 +12,12 @@ const taskShema = new Schema(
     start: {
       type: String,
       required: [true, "Start time is required"],
-      match: [schemas.timeRegexp, "Start time do not match"],
+      match: [timeRegexp, "Start time do not match"],
     },
     end: {
       type: String,
       required: [true, "End time is required"],
-      match: [schemas.timeRegexp, "End time do not match"],
+      match: [timeRegexp, "End time do not match"],
     },
     priority: {
       type: String,
@@ -27,7 +27,7 @@ const taskShema = new Schema(
     date: {
       type: String,
       required: [true, "Date is required"],
-      match: [schemas.dateRegexp, "Date do not match"],
+      match: [dateRegexp, "Date do not match"],
     },
     category: {
       type: String,
