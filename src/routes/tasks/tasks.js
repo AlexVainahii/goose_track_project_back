@@ -6,12 +6,7 @@ const { schemas } = require("@schemas");
 
 const router = express.Router();
 
-router.get(
-  "/",
-  MW.authenticate,
-  MW.validateBody(schemas.getMonthTasksSchema),
-  tasksCtrl.getMonthTasks
-);
+router.get("/", MW.authenticate, tasksCtrl.getMonthTasks);
 
 router.post(
   "/",
