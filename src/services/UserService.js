@@ -45,6 +45,8 @@ class UserService {
   async login({ email, password }) {
     const user = await User.findOne({ email });
 
+    helpers.CheckByError(!user, 401, "Email or password is wrong");
+
     const {
       userName,
       avatarURL,
@@ -54,8 +56,6 @@ class UserService {
       createdAt,
       updatedAt,
     } = user;
-
-    helpers.CheckByError(!user, 401, "Email or password is wrong");
 
     // helpers.CheckByError(!user.verify, 401, "Email not verified");
 
