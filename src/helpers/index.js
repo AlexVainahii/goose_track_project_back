@@ -4,6 +4,7 @@ const {
   phoneRegexp,
   timeRegexp,
   monthRegexp,
+  birthDayRegexp,
 } = require("./regexp");
 const { CreateError } = require("./CreateError");
 const CheckByError = require("../helpers/CheckByError");
@@ -21,6 +22,7 @@ module.exports = {
   phoneRegexp,
   timeRegexp,
   monthRegexp,
+  birthDayRegexp,
   CreateError,
   handleMongooseError,
   CheckByError,
