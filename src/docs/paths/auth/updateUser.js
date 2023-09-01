@@ -37,9 +37,6 @@ module.exports = {
               type: "object",
               allOf: [
                 {
-                  $ref: "#/components/schemas/SuccessResponse",
-                },
-                {
                   properties: {
                     data: {
                       $ref: "#/components/schemas/User",

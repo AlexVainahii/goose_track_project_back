@@ -18,7 +18,7 @@ const register = async (req, res) => {
     userName,
   });
 
-  const verifyEmail = getEmail.registrationsConfirm(user.userName);
+  const verifyEmail = getEmail.registrationsConfirm(email, user.userName);
 
   await services.sendEmail(verifyEmail);
 

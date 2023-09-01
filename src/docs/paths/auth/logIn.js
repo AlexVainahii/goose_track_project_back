@@ -3,7 +3,7 @@ module.exports = {
     tags: ["Auth"],
     summary: "Login user",
     description: "This route logs the user",
-    operationId: "logIn",
+    operationId: "auth/logIn",
     requestBody: {
       description: "An example of a request object for user login",
       required: true,

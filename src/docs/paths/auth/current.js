@@ -3,7 +3,7 @@ module.exports = {
     tags: ["Auth"],
     summary: "Get information about the current user",
     description: "This route return information about the current user",
-    operationId: "current",
+    operationId: "/auth/current",
     security: [
       {
         BearerAuth: [],
@@ -17,9 +17,6 @@ module.exports = {
             schema: {
               type: "object",
               allOf: [
-                {
-                  $ref: "#/components/schemas/SuccessResponse",
-                },
                 {
                   properties: {
                     token: {
