@@ -21,18 +21,11 @@ const userSchema = new Schema(
     },
     phone: {
       type: String,
-      match: [
-        helpers.phoneRegexp,
-        "Invalid phone number format. Please fill a valid phone number (000) 000-0000.",
-      ],
+      match: [helpers.phoneRegexp, "Invalid phone number format."],
       default: "",
     },
     skype: {
       type: String,
-      match: [
-        helpers.phoneRegexp,
-        "Invalid skype phone number format. Please fill a valid phone number (000) 000-0000.",
-      ],
       default: "",
     },
     birthDay: { type: String, default: "" },

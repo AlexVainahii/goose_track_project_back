@@ -11,23 +11,10 @@ module.exports = {
     ],
     requestBody: {
       description: "An example of a request object for updating user",
-      required: true,
       content: {
         "multipart/form-data:": {
           schema: {
-            type: "object",
-            required: ["name", "email", "password"],
-            properties: {
-              userName: {
-                type: "string",
-                description: "Username",
-                example: "Stepan Bandera",
-              },
-              fileName: {
-                type: "string",
-                format: "binary",
-              },
-            },
+            $ref: "#/components/schemas/updateUser",
           },
         },
       },

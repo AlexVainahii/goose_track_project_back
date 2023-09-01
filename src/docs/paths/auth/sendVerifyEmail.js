@@ -3,7 +3,7 @@ module.exports = {
     tags: ["Auth"],
     summary: "Send verify Email",
     description: "This route send the user verification email",
-    operationId: "logout",
+    operationId: "SendVerify",
     security: [
       {
         BearerAuth: [],

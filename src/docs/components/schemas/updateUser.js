@@ -1,13 +1,7 @@
 module.exports = {
-  User: {
+  updateUser: {
     type: "object",
-    required: ["userName", "email", "password"],
     properties: {
-      _id: {
-        type: "string",
-        description: "Backend-generated unique identifier.",
-        example: "63fa1eb8ed1b46fa6fd8e857",
-      },
       userName: {
         type: "string",
         description: "User's name",
@@ -39,20 +33,10 @@ module.exports = {
         description: "User's  birthDay",
         example: "11/11/1995",
       },
-      verify: {
-        type: "boolean",
-        description: "isVerifikation email",
-        example: "false",
-      },
-      createdAt: {
+      avatar: {
         type: "string",
-        description: "Data&Time create User",
-        example: "2023-08-25T18:01:01.709Z",
-      },
-      updatedAt: {
-        type: "string",
-        description: "Data&Time update User",
-        example: "2023-08-25T23:33:49.514Z",
+        format: "binary",
+        description: "Image file (e.g., JPEG, PNG)",
       },
     },
   },
