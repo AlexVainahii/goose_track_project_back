@@ -3,7 +3,7 @@ module.exports = {
     tags: ["Auth"],
     summary: "Get information about the current user",
     description: "This route return information about the current user",
-    operationId: "/auth/current",
+    operationId: "current",
     security: [
       {
         BearerAuth: [],

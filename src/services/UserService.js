@@ -53,6 +53,7 @@ class UserService {
       phone,
       skype,
       birthDay,
+      verify,
       createdAt,
       updatedAt,
     } = user;
@@ -82,6 +83,7 @@ class UserService {
         phone,
         skype,
         birthDay,
+        verify,
         createdAt,
         updatedAt,
       },
@@ -93,7 +95,7 @@ class UserService {
     await User.findByIdAndUpdate(_id, { token: "" });
   }
 
-  async resendVerifyEmail(email) {
+  async sendVerifyEmail(email) {
     const user = await User.findOne({ email });
     helpers.CheckByError(!user, 401, "Email not found");
 
@@ -125,7 +127,7 @@ class UserService {
       verificationToken: "",
     });
 
-    return getToken(user);
+    return user.email;
   }
 }
 module.exports = new UserService();

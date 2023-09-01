@@ -8,7 +8,10 @@ const updateUser = async (req, res, next) => {
     req.body;
   const updatedFields = {};
 
-  if (email) updatedFields.email = email;
+  if (email) {
+    updatedFields.email = email;
+    updatedFields.verify = false;
+  }
   if (password) updatedFields.password = password;
   if (userName) updatedFields.userName = userName;
   if (skype) updatedFields.skype = skype;
