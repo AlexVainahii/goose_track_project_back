@@ -5,10 +5,10 @@ const dontBody = (req, res, next) => {
     console.log("req :>> ", req);
     switch (req.method) {
       case "PATCH":
-        throw helpers.CreateError(400, "missing fields");
+        throw helpers.CreateError(400, "Bad request (invalid request body)");
 
       default:
-        throw helpers.CreateError(400, "missing fields");
+        throw helpers.CreateError(400, "Bad request (invalid request body)");
     }
   }
   next();

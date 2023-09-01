@@ -4,6 +4,7 @@ const validateBody = require("./validateBody");
 const authenticate = require("./authenticate");
 const { uploadAvatar } = require("./uploadAvatar");
 const validateUpdateBody = require("./validateUpdateBody");
+
 module.exports = {
   dontBody,
   isValidId,

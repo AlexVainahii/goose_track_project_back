@@ -13,15 +13,19 @@ module.exports = {
       description: "An example of a request object for updating user",
       required: true,
       content: {
-        "application/json": {
+        "multipart/form-data:": {
           schema: {
             type: "object",
             required: ["name", "email", "password"],
             properties: {
-              name: {
+              userName: {
                 type: "string",
                 description: "Username",
                 example: "Stepan Bandera",
+              },
+              fileName: {
+                type: "string",
+                format: "binary",
               },
             },
           },
