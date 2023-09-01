@@ -1,5 +1,5 @@
 module.exports = {
-  post: {
+  get: {
     tags: ["Auth"],
     summary: "Send verify Email",
     description: "This route send the user verification email",
