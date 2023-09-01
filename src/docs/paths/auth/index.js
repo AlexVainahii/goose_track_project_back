@@ -1,7 +1,7 @@
 module.exports = {
-  "/register": require("./register"),
-  "/login": require("./logIn"),
-  "/logout": require("./logOut"),
-  "/current": require("./current"),
-  "/user": require("./updateUser"),
+  "/auth/register": require("./register"),
+  "/auth/login": require("./logIn"),
+  "/auth/logout": require("./logOut"),
+  "/auth/current": require("./current"),
+  "/auth/user": require("./updateUser"),
 };

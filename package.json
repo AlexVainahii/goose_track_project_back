@@ -25,6 +25,8 @@
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "express-async-handler": "^1.2.0",
+    "faker": "npm:Faker@^0.7.2",
+    "Faker": "^0.7.2",
     "googleapis": "^126.0.0",
     "gravatar": "^1.8.2",
     "jimp": "^0.22.10",
@@ -41,6 +43,7 @@
     "uuid": "^9.0.0"
   },
   "devDependencies": {
+    "@faker-js/faker": "^8.0.2",
     "eslint": "7.19.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-config-standard": "16.0.3",
@@ -59,5 +62,9 @@
     "@models": "./src/models",
     "@schemas": "./src/schemas",
     "@helpers": "./src/helpers"
-  }
+  },
+  "description": "- `npm start` &mdash; старт сервера в режимі production\r - `npm run start:dev` &mdash; старт сервера в режимі розробки (development)\r - `npm run lint` &mdash; запустити виконання перевірки коду з eslint, необхідно виконувати перед кожним PR та виправляти всі помилки лінтера\r - `npm lint:fix` &mdash; та ж перевірка лінтера, але з автоматичними виправленнями простих помилок",
+  "main": ".eslintrc.js",
+  "author": "",
+  "license": "ISC"
 }

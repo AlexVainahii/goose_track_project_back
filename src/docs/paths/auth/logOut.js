@@ -3,7 +3,7 @@ module.exports = {
     tags: ["Auth"],
     summary: "Log out user",
     description: "This route logs the user out",
-    operationId: "logout",
+    operationId: "auth/logout",
     security: [
       {
         BearerAuth: [],
@@ -14,9 +14,6 @@ module.exports = {
         description: "The user is logged out",
         content: {
           "application/json": {
-            schema: {
-              $ref: "#/components/schemas/SuccessResponse",
-            },
             example: {
               code: 204,
               message: "No content",

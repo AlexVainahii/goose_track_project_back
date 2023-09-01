@@ -13,6 +13,7 @@ const getEmail = require("./getEmail");
 const templateVerificationEmail = require("./templateVerificationEmail");
 const templateRegistrationEmail = require("./templateRegistrationEmail");
 const templateChangePassEmail = require("./templateChangePassEmail");
+const { tasks } = require("./getTasks");
 
 module.exports = {
   dateRegexp,
@@ -28,4 +29,5 @@ module.exports = {
   templateVerificationEmail,
   templateRegistrationEmail,
   templateChangePassEmail,
+  tasks,
 };
