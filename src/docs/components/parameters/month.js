@@ -1,5 +1,5 @@
 module.exports = {
-  monthParam: {
+  month: {
     name: "month",
     in: "path",
     description: "Month",
