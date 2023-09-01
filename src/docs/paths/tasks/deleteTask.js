@@ -9,11 +9,7 @@ module.exports = {
         BearerAuth: [],
       },
     ],
-    requestBody: {
-      description: "An example of a request object for delete task",
-      required: false,
-      content: {},
-    },
+
     responses: {
       200: {
         description: "todo deleted",
