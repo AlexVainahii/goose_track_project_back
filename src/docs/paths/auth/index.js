@@ -4,4 +4,6 @@ module.exports = {
   "/auth/logout": require("./logOut"),
   "/auth/current": require("./current"),
   "/auth/user": require("./updateUser"),
+  "/auth/sendVerifyEmail": require("./sendVerifyEmail"),
+  "/auth/verify/{verificationToken}": require("./verifyEmail"),
 };

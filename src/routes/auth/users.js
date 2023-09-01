@@ -33,10 +33,6 @@ router.post("/logout", middleW.authenticate, usersCtrl.logOut);
 
 router.get("/verify/:verificationToken", usersCtrl.verifyEmail);
 
-router.post(
-  "/resendVerify",
-  middleW.validateBody(schemas.emailSchema),
-  usersCtrl.resendVerifyEmail
-);
+router.get("/sendVerifyEmail", middleW.authenticate, usersCtrl.sendVerifyEmail);
 
 module.exports = router;

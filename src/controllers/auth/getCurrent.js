@@ -8,6 +8,7 @@ const getCurrent = async (req, res) => {
     phone,
     skype,
     birthDay,
+    verify,
     token,
     createdAt,
     updatedAt,
@@ -21,6 +22,7 @@ const getCurrent = async (req, res) => {
     phone,
     skype,
     birthDay,
+    verify,
     createdAt,
     updatedAt,
   };

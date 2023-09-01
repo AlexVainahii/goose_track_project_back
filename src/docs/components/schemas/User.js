@@ -38,7 +38,11 @@ module.exports = {
         description: "User's  birthDay",
         example: "11/11/1995",
       },
-
+      verify: {
+        type: "boolean",
+        description: "isVerifikation email",
+        example: "false",
+      },
       createdAt: {
         type: "string",
         description: "Data&Time create User",

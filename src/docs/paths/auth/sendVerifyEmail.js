@@ -1,8 +1,8 @@
 module.exports = {
   post: {
     tags: ["Auth"],
-    summary: "Log out user",
-    description: "This route logs the user out",
+    summary: "Send verify Email",
+    description: "This route send the user verification email",
     operationId: "logout",
     security: [
       {
@@ -10,13 +10,18 @@ module.exports = {
       },
     ],
     responses: {
-      204: {
-        description: "The user is logged out",
+      200: {
+        description: "Verification email sent",
         content: {
           "application/json": {
             example: {
-              code: 204,
-              message: "No content",
+              code: 200,
+              message: "Verification email sent",
+              email: {
+                type: "string",
+                description: "email is verefikation",
+                example: "stepan@gmail.com",
+              },
             },
           },
         },
