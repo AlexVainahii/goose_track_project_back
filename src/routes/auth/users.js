@@ -35,4 +35,16 @@ router.get("/verify/:verificationToken", usersCtrl.verifyEmail);
 
 router.get("/sendVerifyEmail", middleW.authenticate, usersCtrl.sendVerifyEmail);
 
+router.post(
+  "/sendRenewToken",
+  middleW.validateBody(schemas.emailSchema),
+  usersCtrl.sendRenewToken
+);
+router.post(
+  "/changePassword",
+  middleW.authenticate,
+  middleW.validateBody(schemas.passSchema),
+  usersCtrl.changePassword
+);
+
 module.exports = router;

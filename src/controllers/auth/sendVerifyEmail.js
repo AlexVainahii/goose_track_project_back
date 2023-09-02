@@ -5,7 +5,7 @@ const sendVerifyEmail = async (req, res) => {
   const { email } = req.user;
   await UserService.sendVerifyEmail(email);
   res
-    .status(204)
+    .status(200)
     .json({ status: 200, message: "Verification email sent", email: email });
 };
 

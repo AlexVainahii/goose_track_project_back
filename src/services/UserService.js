@@ -129,5 +129,51 @@ class UserService {
 
     return user.email;
   }
+
+  async sendResToken(email) {
+    const user = await User.findOne({ email });
+
+    helpers.CheckByError(!user, 404, "Email not found");
+    let isToken = false;
+    let token = user.token;
+
+    try {
+      jwt.verify(user.token, process.env.SECRET_KEY);
+    } catch (error) {
+      isToken = true;
+    }
+    if (isToken) {
+      token = getToken(user, "10m");
+
+      await User.findByIdAndUpdate(user._id, { token });
+    }
+
+    const renewEmail = helpers.getEmail.renewPass(email, token, user.userName);
+    await sendEmail(renewEmail);
+    return email;
+  }
+
+  async changePass(changeUser, newPassword) {
+    const password = await bcrypt.hash(newPassword, 10);
+
+    const token = getToken(changeUser);
+    await User.findByIdAndUpdate(changeUser._id, { token, password });
+    return {
+      user: {
+        email: changeUser.email,
+        userName: changeUser.userName,
+        avatarURL: changeUser.avatarURL,
+        phone: changeUser.phone,
+        skype: changeUser.skype,
+        birthDay: changeUser.birthDay,
+        createdAt: changeUser.createdAt,
+        updatedAt: changeUser.updatedAt,
+        verificationToken: changeUser.verificationToken,
+        verify: changeUser.verify,
+      },
+      token: token,
+    };
+  }
 }
+
 module.exports = new UserService();

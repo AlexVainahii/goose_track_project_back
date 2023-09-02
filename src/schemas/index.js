@@ -3,6 +3,7 @@ const {
   emailSchema,
   loginSchema,
   updateSchema,
+  passSchema,
 } = require("./authSchemas");
 
 const {
@@ -16,6 +17,7 @@ const schemas = {
   emailSchema,
   loginSchema,
   updateSchema,
+  passSchema,
   getMonthTasksSchema,
   patchTaskSchema,
   postTaskSchema,
