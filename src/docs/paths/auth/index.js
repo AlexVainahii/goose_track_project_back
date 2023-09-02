@@ -6,4 +6,6 @@ module.exports = {
   "/auth/user": require("./updateUser"),
   "/auth/sendVerifyEmail": require("./sendVerifyEmail"),
   "/auth/verify/{verificationToken}": require("./verifyEmail"),
+  "/auth/sendRenewPass": require("./sendRenewPass"),
+  "/auth/changePassword": require("./changePassword"),
 };

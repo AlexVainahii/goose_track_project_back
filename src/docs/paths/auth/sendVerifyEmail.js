@@ -19,7 +19,7 @@ module.exports = {
               message: "Verification email sent",
               email: {
                 type: "string",
-                description: "email is verefikation",
+                description: "email is verification",
                 example: "stepan@gmail.com",
               },
             },
