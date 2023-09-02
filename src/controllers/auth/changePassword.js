@@ -3,9 +3,13 @@ const asyncHandler = require("express-async-handler");
 const { UserService } = require("@services");
 
 const changePassword = async (req, res) => {
-  const { newPassword } = req.body;
-  helpers.CheckByError(!newPassword, 400, "Bad request (invalid request body)");
-  const data = await UserService.changePass(req.user, newPassword);
+  const { oldPassword, newPassword } = req.body;
+  helpers.CheckByError(
+    !newPassword & !oldPassword,
+    400,
+    "Bad request (invalid request body)"
+  );
+  const data = await UserService.changePass(req.user, newPassword, oldPassword);
 
   res.status(200).json({
     status: 200,
