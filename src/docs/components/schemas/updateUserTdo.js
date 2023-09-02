@@ -1,5 +1,5 @@
 module.exports = {
-  updateUser: {
+  updateUserTdo: {
     type: "object",
     properties: {
       userName: {
@@ -36,7 +36,7 @@ module.exports = {
       avatar: {
         type: "string",
         format: "binary",
-        description: "Image file (e.g., JPEG, PNG)",
+        description: "Image file (e.g., JPEG, PNG, GIF)",
       },
     },
   },
