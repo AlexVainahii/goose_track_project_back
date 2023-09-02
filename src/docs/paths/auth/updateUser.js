@@ -14,7 +14,7 @@ module.exports = {
       content: {
         "multipart/form-data:": {
           schema: {
-            $ref: "#/components/schemas/updateUser",
+            $ref: "#/components/schemas/updateUserTdo",
           },
         },
       },
