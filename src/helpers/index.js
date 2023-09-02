@@ -13,8 +13,9 @@ const { errorMessageList } = require("./errorMessageList");
 const getEmail = require("./getEmail");
 const templateVerificationEmail = require("./templateVerificationEmail");
 const templateRegistrationEmail = require("./templateRegistrationEmail");
-const templateRenevPassEmail = require("./templateRenevPassEmail");
+const templateRenewPassEmail = require("./templateRenevPassEmail");
 const { tasks } = require("./getTasks");
+const generateRandomPassword = require("./generateRandomPassword");
 
 module.exports = {
   dateRegexp,
@@ -26,10 +27,11 @@ module.exports = {
   CreateError,
   handleMongooseError,
   CheckByError,
+  generateRandomPassword,
   errorMessageList,
   getEmail,
   templateVerificationEmail,
   templateRegistrationEmail,
-  templateRenevPassEmail,
+  templateRenewPassEmail,
   tasks,
 };

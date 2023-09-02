@@ -130,25 +130,22 @@ class UserService {
     return user.email;
   }
 
-  async sendResToken(email) {
+  async sendGeneratePass(email) {
     const user = await User.findOne({ email });
 
     helpers.CheckByError(!user, 404, "Email not found");
-    let isToken = false;
-    let token = user.token;
 
-    try {
-      jwt.verify(user.token, process.env.SECRET_KEY);
-    } catch (error) {
-      isToken = true;
-    }
-    if (isToken) {
-      token = getToken(user, "10m");
+    const password = helpers.generateRandomPassword(8);
 
-      await User.findByIdAndUpdate(user._id, { token });
-    }
+    const hashPassword = await bcrypt.hash(password, 10);
+    console.log("user._id :>> ", user._id);
+    await User.findByIdAndUpdate(user._id, { password: hashPassword });
 
-    const renewEmail = helpers.getEmail.renewPass(email, token, user.userName);
+    const renewEmail = helpers.getEmail.renewPass(
+      email,
+      password,
+      user.userName
+    );
     await sendEmail(renewEmail);
     return email;
   }
@@ -156,23 +153,14 @@ class UserService {
   async changePass(changeUser, newPassword) {
     const password = await bcrypt.hash(newPassword, 10);
 
-    const token = getToken(changeUser);
-    await User.findByIdAndUpdate(changeUser._id, { token, password });
-    return {
-      user: {
-        email: changeUser.email,
-        userName: changeUser.userName,
-        avatarURL: changeUser.avatarURL,
-        phone: changeUser.phone,
-        skype: changeUser.skype,
-        birthDay: changeUser.birthDay,
-        createdAt: changeUser.createdAt,
-        updatedAt: changeUser.updatedAt,
-        verificationToken: changeUser.verificationToken,
-        verify: changeUser.verify,
-      },
-      token: token,
-    };
+    await User.findByIdAndUpdate(changeUser._id, { password });
+    const renewEmail = helpers.getEmail.renewPass(
+      changeUser.email,
+      newPassword,
+      changeUser.userName
+    );
+    await sendEmail(renewEmail);
+    return changeUser.email;
   }
 }
 
