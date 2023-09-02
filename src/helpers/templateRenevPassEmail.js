@@ -1,4 +1,4 @@
-const templateRenevPassEmail = (confirmationLink, userName) => {
+const templateRenewPassEmail = (confirmationLink, userName, password) => {
   return `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
   <html
     xmlns="http://www.w3.org/1999/xhtml"
@@ -865,6 +865,36 @@ const templateRenevPassEmail = (confirmationLink, userName) => {
                                         ><strong>${userName}</strong></span
                                       >
                                     </p>
+                                    <p
+                                    style="
+                                      font-size: 14px;
+                                      line-height: 190%;
+                                      text-align: center;
+                                    "
+                                  >
+                                    <span
+                                      style="
+                                        font-size: 22px;
+                                        line-height: 41.8px;
+                                      "
+                                      ><strong>Your Password</strong></span
+                                    >
+                                  </p>
+                                  <p
+                                  style="
+                                    font-size: 14px;
+                                    line-height: 190%;
+                                    text-align: center;
+                                  "
+                                >
+                                  <span
+                                    style="
+                                      font-size: 22px;
+                                      line-height: 41.8px;
+                                    "
+                                    ><strong>${password}</strong></span
+                                  >
+                                </p>
                                   </div>
                                 </td>
                               </tr>
@@ -904,9 +934,12 @@ const templateRenevPassEmail = (confirmationLink, userName) => {
                                     </p>
                                     <p style="font-size: 14px; line-height: 200%">We are sending you this email because we have received a request to change the password for your account on our website.
 
-                                    If you did not make this request, please disregard this email.
+
+                                    Your password has been successfully changed. 
+
                                     
-                                    If you wish to change your password, please click the button below:
+                                    
+                                    To log in to the site, please click the button below:
                               
                                     
                                    
@@ -1613,4 +1646,4 @@ const templateRenevPassEmail = (confirmationLink, userName) => {
   </html>
 `;
 };
-module.exports = { templateRenevPassEmail };
+module.exports = { templateRenewPassEmail };

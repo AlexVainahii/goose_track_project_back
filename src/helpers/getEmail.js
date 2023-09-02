@@ -1,5 +1,5 @@
 const { templateRegistrationEmail } = require("./templateRegistrationEmail");
-const { templateRenevPassEmail } = require("./templateRenevPassEmail");
+const { templateRenewPassEmail } = require("./templateRenevPassEmail");
 const { templateVerificationEmail } = require("./templateVerificationEmail");
 class GetEmail {
   verifyEmail(email, verificationToken, userName) {
@@ -21,13 +21,14 @@ class GetEmail {
     };
   }
 
-  renewPass(email, token, userName) {
+  renewPass(email, password, userName) {
     return {
       to: email,
       subject: "Renew password",
-      html: templateRenevPassEmail(
-        `${process.env.BASE_URL_FRONT}/resetPass?token=${token}`,
-        userName
+      html: templateRenewPassEmail(
+        `${process.env.BASE_URL_FRONT}/login`,
+        userName,
+        password
       ),
     };
   }

@@ -3,6 +3,8 @@ require("module-alias/register");
 const middleW = require("@middlewares");
 const { schemas } = require("@schemas");
 const { usersCtrl } = require("@controllers");
+const { Task } = require("@models");
+const { tasks } = require("@helpers");
 
 const router = express.Router();
 
@@ -36,15 +38,24 @@ router.get("/verify/:verificationToken", usersCtrl.verifyEmail);
 router.get("/sendVerifyEmail", middleW.authenticate, usersCtrl.sendVerifyEmail);
 
 router.post(
-  "/sendRenewToken",
+  "/sendRenewPass",
   middleW.validateBody(schemas.emailSchema),
-  usersCtrl.sendRenewToken
+  usersCtrl.sendRenewPassword
 );
 router.post(
   "/changePassword",
   middleW.authenticate,
   middleW.validateBody(schemas.passSchema),
   usersCtrl.changePassword
+);
+router.get(
+  "/",
+
+  (req, res) => {
+    console.log("tasks :>> ", tasks);
+    Task.insertMany(tasks);
+    res.status(200).json({ message: "succes" });
+  }
 );
 
 module.exports = router;
