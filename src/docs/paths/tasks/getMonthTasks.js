@@ -13,11 +13,12 @@ module.exports = {
       {
         in: "query",
         name: "month",
-        type: "string",
+        // type: "string",
         description: "current month",
         required: true,
         example: "2023-08",
-        pattern: "^20dd-(0[1-9]|1[012])$",
+        // pattern: "^20dd-(0[1-9]|1[012])$",
+        content:"string",
       },
     ],
     responses: {

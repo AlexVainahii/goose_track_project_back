@@ -9,6 +9,17 @@ module.exports = {
         BearerAuth: [],
       },
     ],
+        parameters: [
+      {
+        in: "path",
+        name: "id",
+        // type: "string",
+        description: "current month",
+        required: true,
+        example: "2023-08",
+        // pattern: "^20dd-(0[1-9]|1[012])$",
+        content:"string",
+      },],
     requestBody: {
       description: "An example of a request object for edit task",
       required: true,
