@@ -1,5 +1,5 @@
 module.exports = {
-  get: {
+  post: {
     tags: ["Auth"],
     summary: "Change Password",
     description: "This route changes the user's password.",
