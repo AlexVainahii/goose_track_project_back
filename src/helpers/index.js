@@ -13,7 +13,7 @@ const { errorMessageList } = require("./errorMessageList");
 const getEmail = require("./getEmail");
 const templateVerificationEmail = require("./templateVerificationEmail");
 const templateRegistrationEmail = require("./templateRegistrationEmail");
-const templateChangePassEmail = require("./templateChangePassEmail");
+const templateRenevPassEmail = require("./templateRenevPassEmail");
 const { tasks } = require("./getTasks");
 
 module.exports = {
@@ -30,6 +30,6 @@ module.exports = {
   getEmail,
   templateVerificationEmail,
   templateRegistrationEmail,
-  templateChangePassEmail,
+  templateRenevPassEmail,
   tasks,
 };

@@ -1,4 +1,5 @@
 const { templateRegistrationEmail } = require("./templateRegistrationEmail");
+const { templateRenevPassEmail } = require("./templateRenevPassEmail");
 const { templateVerificationEmail } = require("./templateVerificationEmail");
 class GetEmail {
   verifyEmail(email, verificationToken, userName) {
@@ -6,7 +7,7 @@ class GetEmail {
       to: email,
       subject: "Verify email",
       html: templateVerificationEmail(
-        `${process.env.BASE_URL}/verify/${verificationToken}`,
+        `${process.env.BASE_URL_FRONT}/verify/${verificationToken}`,
         userName
       ),
     };
@@ -15,21 +16,21 @@ class GetEmail {
   registrationsConfirm(email, userName) {
     return {
       to: email,
-      subject: "registry confirm",
+      subject: "Registry confirm",
       html: templateRegistrationEmail(userName),
     };
   }
 
-  // changePass(email, changePassToken, userName) {
-  //   return {
-  //     to: email,
-  //     subject: "Verify email",
-  //     html: templateChangePassEmail(
-  //       `${process.env.BASE_URL}/verify/${changePassToken}`,
-  //       userName
-  //     ),
-  //   };
-  // }
+  renewPass(email, token, userName) {
+    return {
+      to: email,
+      subject: "Renew password",
+      html: templateRenevPassEmail(
+        `${process.env.BASE_URL_FRONT}/resetPass?token=${token}`,
+        userName
+      ),
+    };
+  }
 }
 
 module.exports = new GetEmail();

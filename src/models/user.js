@@ -46,10 +46,6 @@ const userSchema = new Schema(
       type: Boolean,
       default: false,
     },
-    changePassToken: {
-      type: String,
-      default: "",
-    },
   },
   { versionKey: false, timestamps: true }
 );
