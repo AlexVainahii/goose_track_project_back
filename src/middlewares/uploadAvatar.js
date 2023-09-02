@@ -30,7 +30,7 @@ const storage = new CloudinaryStorage({
     };
     return {
       folder: folder,
-      allowed_formats: ["jpg", "png"],
+      allowed_formats: ["jpg", "png", "gif"],
       public_id: `${req.user._id}`,
       transformation: transformation,
     };
