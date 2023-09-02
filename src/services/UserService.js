@@ -150,7 +150,14 @@ class UserService {
     return email;
   }
 
-  async changePass(changeUser, newPassword) {
+  async changePass(changeUser, newPassword, oldPassword) {
+    const passwordCompare = await bcrypt.compare(
+      oldPassword,
+      changeUser.password
+    );
+
+    helpers.CheckByError(!passwordCompare, 401, "oldPassword is wrong");
+
     const password = await bcrypt.hash(newPassword, 10);
 
     await User.findByIdAndUpdate(changeUser._id, { password });
