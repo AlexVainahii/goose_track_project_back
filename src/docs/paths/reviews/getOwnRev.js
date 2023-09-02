@@ -12,7 +12,7 @@ module.exports = {
     requestBody: {
       description: "An example of a request object for get own review",
       required: false,
-      // content: {},
+      content: {type:'null'},
     },
     responses: {
       200: {

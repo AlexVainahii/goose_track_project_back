@@ -18,7 +18,7 @@ module.exports = {
         required: true,
         example: "2023-08",
         // pattern: "^20dd-(0[1-9]|1[012])$",
-        content:"string",
+        content: { type: "string", pattern: "^20dd-(0[1-9]|1[012])$" },
       },
     ],
     responses: {

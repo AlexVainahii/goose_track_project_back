@@ -9,7 +9,7 @@ module.exports = {
         BearerAuth: [],
       },
     ],
-        parameters: [
+    parameters: [
       {
         in: "path",
         name: "id",
@@ -18,8 +18,9 @@ module.exports = {
         required: true,
         example: "2023-08",
         // pattern: "^20dd-(0[1-9]|1[012])$",
-        content:"string",
-      },],
+        content: { type: "string", pattern: "^20dd-(0[1-9]|1[012])$" },
+      },
+    ],
     requestBody: {
       description: "An example of a request object for edit task",
       required: true,
