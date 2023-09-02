@@ -1,7 +1,6 @@
 const { Review } = require("@models");
 
 const getAllRev = async (req, res) => {
-  console.log("getAll");
   const result = await Review.find().populate(
     "owner",
     "userName avatarURL -_id"
@@ -12,11 +11,11 @@ const getAllRev = async (req, res) => {
       _id,
       review,
       rating,
-      owner: { userName, avatarURL },
+      owner: { userName = "Deleted", avatarURL = "" },
     } = el;
     return { _id, review, rating, userName, avatarURL };
   });
-  res.json({data:modResult, status:200});
+  res.json({ data: modResult, status: 200 });
 };
 
 module.exports = { getAllRev };
