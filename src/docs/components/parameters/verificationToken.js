@@ -1,5 +1,5 @@
 module.exports = {
-  verificationTokenparam: {
+  verificationToken: {
     in: "path",
     name: "verificationToken",
     description: "verificationToken in email",
