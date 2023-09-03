@@ -142,7 +142,7 @@ class UserService {
       });
     }
 
-    return { email: user.email, token: token, verify: user.verify };
+    return { email: user.email, token: token, verify: true };
   }
 
   async sendGeneratePass(email) {
