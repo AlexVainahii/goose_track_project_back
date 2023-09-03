@@ -8,6 +8,7 @@ const {
   docsRouter,
 } = require("./src/routes");
 require("dotenv").config();
+
 const app = express();
 const formatsLogger = app.get("env") === "development" ? "dev" : "short";
 app.use(express.urlencoded({ extended: true }));

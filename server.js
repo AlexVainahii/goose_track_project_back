@@ -1,4 +1,5 @@
 const app = require("./app");
+
 require("module-alias/register");
 const mongoose = require("mongoose");
 require("colors");
