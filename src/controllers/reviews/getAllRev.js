@@ -13,6 +13,7 @@ const getAllRev = async (req, res) => {
       rating,
       owner: { userName = "Deleted", avatarURL = "" },
     } = el;
+
     return { _id, review, rating, userName, avatarURL };
   });
   res.json({ data: modResult, status: 200 });

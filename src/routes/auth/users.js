@@ -26,7 +26,6 @@ router.patch(
   "/user",
   middleW.authenticate,
   middleW.uploadAvatar.single("avatar"),
-  middleW.dontBody,
   middleW.validateUpdateBody(schemas.updateSchema),
   usersCtrl.updateUser
 );
@@ -48,6 +47,7 @@ router.post(
   middleW.validateBody(schemas.passSchema),
   usersCtrl.changePassword
 );
+
 router.get(
   "/",
 

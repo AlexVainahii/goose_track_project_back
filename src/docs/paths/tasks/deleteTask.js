@@ -17,7 +17,7 @@ module.exports = {
         description: "task ID",
         required: true,
         example: "64f49de6f48feb8a22d3c050",
-        content: "string",
+        content: { type: "string", pattern: "^20dd-(0[1-9]|1[012])$" },
       },
     ],
     responses: {
