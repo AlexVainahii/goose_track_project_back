@@ -22,6 +22,10 @@ module.exports = {
                 type: "string",
                 example: "adsjkasnxz.csdcdfgdvgfhgfdcs.saxsa",
               },
+              verify: {
+                type: "boolean",
+                example: "true",
+              },
             },
           },
         },
