@@ -6,13 +6,12 @@ const verifyEmail = async (req, res) => {
 
   const data = await UserService.verify(verificationToken);
 
-  res
-    .status(200)
-    .json({
-      status: 200,
-      message: "Verification successful",
-      email: data.email,
-      token: data.token,
-    });
+  res.status(200).json({
+    status: 200,
+    message: "Verification successful",
+    email: data.email,
+    token: data.token,
+    verify: data.verify,
+  });
 };
 module.exports = { verifyEmail: asyncHandler(verifyEmail) };
