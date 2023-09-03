@@ -121,13 +121,28 @@ class UserService {
     const user = await User.findOne({ verificationToken });
 
     helpers.CheckByError(!user, 404, "User not found");
+    let isToken = false;
+    let token = user.token;
+    try {
+      jwt.verify(user.token, process.env.SECRET_KEY);
+    } catch (error) {
+      isToken = true;
+    }
+    if (isToken) {
+      token = getToken(user);
+      await User.findByIdAndUpdate(user._id, {
+        token: token,
+        verify: true,
+        verificationToken: "",
+      });
+    } else {
+      await User.findByIdAndUpdate(user._id, {
+        verify: true,
+        verificationToken: "",
+      });
+    }
 
-    await User.findByIdAndUpdate(user._id, {
-      verify: true,
-      verificationToken: "",
-    });
-
-    return user.email;
+    return { email: user.email, token: token };
   }
 
   async sendGeneratePass(email) {

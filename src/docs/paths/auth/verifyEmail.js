@@ -18,6 +18,10 @@ module.exports = {
               code: 200,
               message: "Verification successful",
               email: { type: "string", example: "stepan@gmail.com" },
+              token: {
+                type: "string",
+                example: "adsjkasnxz.csdcdfgdvgfhgfdcs.saxsa",
+              },
             },
           },
         },
