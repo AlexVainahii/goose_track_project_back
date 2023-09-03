@@ -1,5 +1,5 @@
 const Joi = require("joi");
-const { timeRegexp, dateRegexp } = require("@helpers");
+const { timeRegexp, dateRegexp, validateStartEndTime } = require("@helpers");
 
 const patchTaskSchema = Joi.object({
   title: Joi.string().max(250),
@@ -8,6 +8,10 @@ const patchTaskSchema = Joi.object({
   priority: Joi.string(),
   date: Joi.string().pattern(dateRegexp),
   category: Joi.string(),
-});
+})
+  .custom(validateStartEndTime)
+  .messages({
+    "any.invalid": `end time must be bigger than start time`,
+  });
 
 module.exports = { patchTaskSchema };

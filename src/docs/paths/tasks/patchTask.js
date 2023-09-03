@@ -13,11 +13,9 @@ module.exports = {
       {
         in: "path",
         name: "id",
-        // type: "string",
         description: "current month",
         required: true,
         example: "2023-08",
-        // pattern: "^20dd-(0[1-9]|1[012])$",
         content: { type: "string", pattern: "^20dd-(0[1-9]|1[012])$" },
       },
     ],
@@ -78,9 +76,6 @@ module.exports = {
             schema: {
               type: "object",
               allOf: [
-                // {
-                //   $ref: "#/components/schemas/SuccessResponse",
-                // },
                 {
                   properties: {
                     status: {

@@ -4,11 +4,6 @@ module.exports = {
     summary: "Get all reviews",
     description: "Get all reviews",
     operationId: "getAllReviews",
-    // requestBody: {
-    //   description: "An example of a request object for Get all reviews",
-    //   required: false,
-    //   content: {},
-    // },
     responses: {
       200: {
         description: "Get all reviews",
@@ -17,9 +12,6 @@ module.exports = {
             schema: {
               type: "object",
               allOf: [
-                // {
-                //   $ref: "#/components/schemas/SuccessResponse",
-                // },
                 {
                   properties: {
                     status: {
