@@ -66,9 +66,6 @@ module.exports = {
             schema: {
               type: "object",
               allOf: [
-                // {
-                //   $ref: "#/components/schemas/SuccessResponse",
-                // },
                 {
                   properties: {
                     status: {

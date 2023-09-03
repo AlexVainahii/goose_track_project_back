@@ -13,7 +13,6 @@ module.exports = {
       {
         in: "path",
         name: "id",
-        // type: "string",
         description: "task ID",
         required: true,
         example: "64f49de6f48feb8a22d3c050",
@@ -28,9 +27,6 @@ module.exports = {
             schema: {
               type: "object",
               allOf: [
-                // {
-                //   $ref: "#/components/schemas/SuccessResponse",
-                // },
                 {
                   properties: {
                     status: {

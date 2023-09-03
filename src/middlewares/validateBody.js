@@ -8,9 +8,7 @@ const validateBody = (schema) => {
       "Bad request (invalid request body)"
     );
     const { error } = schema.validate(req.body);
-
-    // helpers.CheckByError(error, 400, "Bad request (invalid request body)");
-
+    
     helpers.CheckByError(
       error,
       400,

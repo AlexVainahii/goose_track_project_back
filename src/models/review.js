@@ -9,7 +9,6 @@ const reviewShema = new Schema(
       require: [true, "NO rating, NO review"],
       enum: [1, 2, 3, 4, 5],
     },
-    // avatarUrl: {},
     owner: {
       type: Schema.Types.ObjectId,
       ref: "user",
