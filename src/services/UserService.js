@@ -104,7 +104,7 @@ class UserService {
       400,
       "Verification has already been passed"
     );
-    const verifyEmail = helpers.getVerifyEmail(
+    const verifyEmail = helpers.getEmail.verifyEmail(
       email,
       user.verificationToken,
       user.userName
