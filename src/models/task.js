@@ -18,6 +18,12 @@ const taskShema = new Schema(
       type: String,
       required: [true, "End time is required"],
       match: [timeRegexp, "End time do not match"],
+      validate: {
+        validator: function (v) {
+          return v >= this.start;
+        },
+        message: "Start time must be lower then end time",
+      },
     },
     priority: {
       type: String,

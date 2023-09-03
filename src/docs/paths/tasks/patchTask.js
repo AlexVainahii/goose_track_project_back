@@ -13,9 +13,9 @@ module.exports = {
       {
         in: "path",
         name: "id",
-        description: "current month",
+        description: "task ID",
         required: true,
-        example: "2023-08",
+        example: "64f49de6f48feb8a22d3c050",
         content: { type: "string", pattern: "^20dd-(0[1-9]|1[012])$" },
       },
     ],
