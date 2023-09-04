@@ -9,11 +9,13 @@ module.exports = {
         BearerAuth: [],
       },
     ],
-    requestBody: {
-      description: "An example of a request object for get own review",
-      required: false,
-      content: {type:'null'},
-    },
+    // requestBody: {
+    //   description: "An example of a request object for get own review",
+    //   required: false,
+    //   content: {
+    //     "application/json": { schema: { type: "string", required: false } },
+    //   },
+    // },
     responses: {
       200: {
         description: "get own review",

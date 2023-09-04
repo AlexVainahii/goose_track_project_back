@@ -9,11 +9,11 @@ module.exports = {
         BearerAuth: [],
       },
     ],
-    requestBody: {
-      description: "An example of a request object for Delete own review",
-      required: false,
-      content: {type:'null'},
-    },
+    // requestBody: {
+    //   description: "An example of a request object for Delete own review",
+    //   required: false,
+    //   content: {type:'null'},
+    // },
     responses: {
       200: {
         description: "review deleted",
