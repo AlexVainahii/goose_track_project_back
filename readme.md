@@ -46,25 +46,33 @@ CLOUDINARY_API_SECRET=your_cloudinary_api_secret
 GITHUB_CLIENT_ID=your_github_client_id
 GITHUB_CLIENT_SECRET=your_github_client_secret
 
+
+```
+
 ### Team Back
- [Goose Track Project Back](https://goose-track-project-back.onrender.com/docs)
+
+[Goose Track Project Back](https://goose-track-project-back.onrender.com/docs)
 [Swagger.json](https://goose-track-project-back.onrender.com/docs/swagger.json)
 
-
 ### Team Lead Back
- [Oleksandr Vainahii](https://github.com/AlexVainahii)
-### Developer Back
- [Andriy Ketsko](https://github.com/AndrewKetsko)
 
+[Oleksandr Vainahii](https://github.com/AlexVainahii)
+
+### Developer Back
+
+[Andriy Ketsko](https://github.com/AndrewKetsko)
 
 ### Team Front
+
 [Goose_track_project_front](https://userandrii.github.io/goose_track_project_front)
 [Goose_track_project_front_git_hub](https://github.com/UserAndrii/goose_track_project_front)
 
 ### Team Lead Front
+
 1. [Andrii Hadar](https://github.com/UserAndrii)
 
 ### Scrum Master
+
 1. [Hanna Til](https://github.com/annatill)
 
 ### Development Team Front
@@ -76,4 +84,3 @@ GITHUB_CLIENT_SECRET=your_github_client_secret
 5. [Oleksandr Deren](https://github.com/Oderen)
 6. [Volodymyr Kostenko](https://github.com/VolodymyrK2)
 7. [Galyna Karpinska](https://github.com/GalynkaK)
-```
