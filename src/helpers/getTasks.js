@@ -1,4 +1,3 @@
-const owners = ["64f07bcaf2e69c4a9de62053"];
 const priorities = ["LOW", "MEDIUM", "HIGH"];
 const categories = ["TODO", "INPROGRESS", "DONE"];
 const tasksTitle = [
@@ -170,49 +169,64 @@ const tasksTitle = [
   "Запобігти Вторгненню З Іншої Діме",
 ];
 
-function getRandomElement(array) {
-  return array[Math.floor(Math.random() * array.length)];
+function getTasks(taskCount, owners, startMonth, endMonth) {
+  const startYear = 2023;
+  const tasks = [];
+
+  function generateRandomTime() {
+    const hour = String(Math.floor(Math.random() * 24)).padStart(2, "0");
+    const minute = String(Math.floor(Math.random() * 60)).padStart(2, "0");
+    return `${hour}:${minute}`;
+  }
+
+  function generateRandomDate(month) {
+    const year = parseInt(month.split("-")[0]);
+    const randomMonthNum = parseInt(month.split("-")[1]);
+    const day = String(Math.floor(Math.random() * 30) + 1).padStart(2, "0");
+    return `${year}-${String(randomMonthNum).padStart(2, "0")}-${day}`;
+  }
+
+  function getRandomElement(array) {
+    return array[Math.floor(Math.random() * array.length)];
+  }
+
+  for (let i = 0; i < taskCount; i++) {
+    const title = getRandomElement(tasksTitle);
+    const start = generateRandomTime();
+
+    let end;
+    do {
+      end = generateRandomTime();
+    } while (end <= start);
+
+    const priority = getRandomElement(priorities);
+    const startYear = parseInt(startMonth.split("-")[0]);
+    const endYear = parseInt(endMonth.split("-")[0]);
+
+    const randomYear =
+      Math.floor(Math.random() * (endYear - startYear + 1)) + startYear;
+    const randomMonthNum = Math.floor(Math.random() * 12) + 1; // Генерируем месяц от 1 до 12
+
+    const month = randomYear + "-" + String(randomMonthNum).padStart(2, "0");
+    console.log("month :>> ", month);
+    const date = generateRandomDate(month);
+    const category = getRandomElement(categories);
+    const owner = owners;
+
+    const task = {
+      title: title,
+      start: start,
+      end: end,
+      priority: priority,
+      date: date,
+      category: category,
+      owner: owner,
+    };
+
+    tasks.push(task);
+  }
+  console.log("tasks :>> ", tasks);
+  return tasks;
 }
 
-function generateRandomTime() {
-  const hour = String(Math.floor(Math.random() * 24)).padStart(2, "0");
-  const minute = String(Math.floor(Math.random() * 60)).padStart(2, "0");
-  return `${hour}:${minute}`;
-}
-
-function generateRandomDate() {
-  const year = 2023;
-  const month = String(Math.floor(Math.random() * 2) + 8).padStart(2, "0");
-  const day = String(Math.floor(Math.random() * 30) + 1).padStart(2, "0");
-  return `${year}-${month}-${day}`;
-}
-
-function generateRandomTask() {
-  const title = tasksTitle[Math.floor(Math.random() * tasksTitle.length)];
-  const start = generateRandomTime();
-
-  let end;
-  do {
-    end = generateRandomTime();
-  } while (end <= start); // Генерувати новий час `end`, доки він не стане пізнішим за `start`.
-
-  const priority = getRandomElement(priorities);
-  const date = generateRandomDate();
-  const category = getRandomElement(categories);
-  const owner = getRandomElement(owners);
-
-  const task = {
-    title: title,
-    start: start,
-    end: end,
-    priority: priority,
-    date: date,
-    category: category,
-    owner: owner,
-  };
-
-  return task;
-}
-
-const tasks = Array.from({ length: 200 }, generateRandomTask);
-module.exports = { tasks };
+module.exports = getTasks;

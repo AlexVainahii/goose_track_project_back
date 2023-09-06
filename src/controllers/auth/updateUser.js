@@ -3,7 +3,7 @@ const asyncHandler = require("express-async-handler");
 
 const updateUser = async (req, res, next) => {
   const { _id } = req.user;
-
+  console.log("req.user :>> ", req.user);
   const { email, password, userName, skype, phone, birthDay, avatarURL } =
     req.body;
   const updatedFields = {};

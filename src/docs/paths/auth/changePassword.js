@@ -16,14 +16,14 @@ module.exports = {
         "application/json": {
           schema: {
             type: "object",
-            required: ["oldPassword", "password"],
+            required: ["oldPassword", "newPassword"],
             properties: {
               oldPassword: {
                 type: "string",
                 description: "old password",
                 example: "123546",
               },
-              password: {
+              newPassword: {
                 type: "string",
                 description: "new password",
                 example: "123gph",
@@ -43,7 +43,7 @@ module.exports = {
               message: "Change password success",
               email: {
                 type: "string",
-                description: "email is verification",
+                description: "The email of the user who changed the password.",
                 example: "sanjaksms@gmail.com",
               },
             },
