@@ -23,6 +23,18 @@ router.patch(
   tasksCtrl.patchTask
 );
 
-router.delete("/:id", middleW.isValidId, middleW.authenticate, tasksCtrl.deleteTask);
+router.delete(
+  "/:id",
+  middleW.isValidId,
+  middleW.authenticate,
+  tasksCtrl.deleteTask
+);
+
+router.post(
+  "/setFakeTasks",
+  middleW.authenticate,
+  middleW.validateBody(schemas.getFakeTaskSchema),
+  tasksCtrl.getFakeTasks
+);
 
 module.exports = router;

@@ -10,6 +10,7 @@ const {
   getMonthTasksSchema,
   patchTaskSchema,
   postTaskSchema,
+  getFakeTaskSchema,
 } = require("./taskSchemas");
 const { postReviewSchema, patchReviewSchema } = require("./reviewSchemas");
 const schemas = {
@@ -23,5 +24,6 @@ const schemas = {
   postTaskSchema,
   postReviewSchema,
   patchReviewSchema,
+  getFakeTaskSchema,
 };
 module.exports = { schemas };

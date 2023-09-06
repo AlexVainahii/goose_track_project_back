@@ -14,10 +14,10 @@ const getEmail = require("./getEmail");
 const templateVerificationEmail = require("./templateVerificationEmail");
 const templateRegistrationEmail = require("./templateRegistrationEmail");
 const templateRenewPassEmail = require("./templateRenevPassEmail");
-const { tasks } = require("./getTasks");
+const getTasks = require("./getTasks");
 const generateRandomPassword = require("./generateRandomPassword");
-const {validateStartEndTime} = require('./validateTime')
-
+const { validateStartEndTime } = require("./validateTime");
+const { validateStartEndMonth } = require("./validateStartEndMonth");
 module.exports = {
   dateRegexp,
   emailRegexp,
@@ -35,5 +35,6 @@ module.exports = {
   templateRegistrationEmail,
   templateRenewPassEmail,
   validateStartEndTime,
-  tasks,
+  validateStartEndMonth,
+  getTasks,
 };

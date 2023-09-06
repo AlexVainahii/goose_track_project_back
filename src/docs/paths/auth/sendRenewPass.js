@@ -48,5 +48,25 @@ module.exports = {
         },
       },
     },
+    responses: {
+      200: {
+        description: "The user is logged out",
+        content: {
+          "application/json": {
+            example: {
+              code: 200,
+              message: "GeneratePassword email sent",
+              email: { type: "string", example: "stepan@gmail.com" },
+            },
+          },
+        },
+      },
+      400: {
+        description: "Bad request (invalid request body)",
+      },
+      500: {
+        description: "Server error",
+      },
+    },
   },
 };
