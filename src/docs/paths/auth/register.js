@@ -21,7 +21,7 @@ module.exports = {
               email: {
                 type: "string",
                 description: "E-mail address",
-                example: "stepan@gmail.com",
+                example: "StepanBandera@gmail.com",
               },
               password: {
                 type: "string",
