@@ -1,3 +1,6 @@
+const today = new Date();
+const formattedDate = today.toISOString().split("T")[0];
+
 const templateRenewPassEmail = (confirmationLink, userName, password) => {
   return `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
   <html
@@ -840,7 +843,7 @@ const templateRenewPassEmail = (confirmationLink, userName, password) => {
                                             font-size: 18px;
                                             line-height: 34.2px;
                                           "
-                                          >Date:</span
+                                          >Date:${formattedDate}</span
                                         ></strong
                                       >
                                     </p>

@@ -1,3 +1,5 @@
+const today = new Date();
+const formattedDate = today.toISOString().split("T")[0];
 const templateVerificationEmail = (confirmationLink, userName) => {
   return `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
   <html
@@ -841,7 +843,7 @@ const templateVerificationEmail = (confirmationLink, userName) => {
                                             font-size: 18px;
                                             line-height: 34.2px;
                                           "
-                                          >Date:</span
+                                          >Date:${formattedDate}</span
                                         ></strong
                                       >
                                     </p>
