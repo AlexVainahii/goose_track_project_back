@@ -11,7 +11,7 @@ const validateUpdateBody = (schema) => {
     const { error } = schema.validate(req.body);
     if (error) {
       const errorMessages = error.details.map((detail) => detail.message);
-      console.log("errorMessages :>> ", errorMessages);
+
       helpers.CheckByError(error, 400, errorMessages);
     }
     next();

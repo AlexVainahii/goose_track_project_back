@@ -204,10 +204,8 @@ function getTasks(taskCount, owners, startMonth, endMonth) {
 
     const randomYear =
       Math.floor(Math.random() * (endYear - startYear + 1)) + startYear;
-    const randomMonthNum = Math.floor(Math.random() * 12) + 1; // Генерируем месяц от 1 до 12
-
+    const randomMonthNum = Math.floor(Math.random() * 12) + 1;
     const month = randomYear + "-" + String(randomMonthNum).padStart(2, "0");
-    console.log("month :>> ", month);
     const date = generateRandomDate(month);
     const category = getRandomElement(categories);
     const owner = owners;

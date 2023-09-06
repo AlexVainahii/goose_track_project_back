@@ -13,7 +13,6 @@
     "lint:fix": "eslint --fix **/*.js"
   },
   "dependencies": {
-    "@google-cloud/storage": "^7.0.1",
     "@sendgrid/mail": "^7.7.0",
     "axios": "^1.4.0",
     "bcrypt": "^5.1.1",
@@ -25,7 +24,6 @@
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "express-async-handler": "^1.2.0",
-    "googleapis": "^126.0.0",
     "gravatar": "^1.8.2",
     "jimp": "^0.22.10",
     "joi": "^17.9.2",
@@ -37,7 +35,6 @@
     "multer-storage-cloudinary": "^4.0.0",
     "passport": "^0.6.0",
     "passport-github": "^1.1.0",
-    "sharp": "^0.32.5",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.0",
     "uuid": "^9.0.0"

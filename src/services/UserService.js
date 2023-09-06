@@ -153,7 +153,7 @@ class UserService {
     const password = helpers.generateRandomPassword(8);
 
     const hashPassword = await bcrypt.hash(password, 10);
-    console.log("user._id :>> ", user._id);
+
     await User.findByIdAndUpdate(user._id, { password: hashPassword });
 
     const renewEmail = helpers.getEmail.renewPass(
