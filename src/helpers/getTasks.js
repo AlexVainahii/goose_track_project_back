@@ -170,7 +170,6 @@ const tasksTitle = [
 ];
 
 function getTasks(taskCount, owners, startMonth, endMonth) {
-  const startYear = 2023;
   const tasks = [];
 
   function generateRandomTime() {
@@ -225,7 +224,7 @@ function getTasks(taskCount, owners, startMonth, endMonth) {
 
     tasks.push(task);
   }
-  console.log("tasks :>> ", tasks);
+
   return tasks;
 }
 
