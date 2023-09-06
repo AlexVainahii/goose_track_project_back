@@ -52,6 +52,7 @@ GITHUB_CLIENT_SECRET=your_github_client_secret
 ### Team Back
 
 [Goose Track Project Back](https://goose-track-project-back.onrender.com/docs)
+
 [Swagger.json](https://goose-track-project-back.onrender.com/docs/swagger.json)
 
 ### Team Lead Back
@@ -65,6 +66,7 @@ GITHUB_CLIENT_SECRET=your_github_client_secret
 ### Team Front
 
 [Goose_track_project_front](https://userandrii.github.io/goose_track_project_front)
+
 [Goose_track_project_front_git_hub](https://github.com/UserAndrii/goose_track_project_front)
 
 ### Team Lead Front
