@@ -38,27 +38,27 @@ module.exports = {
           },
         },
       },
-      responses: {
-        200: {
-          description: "Success set fake tasks in User",
-          content: {
-            "application/json": {
-              example: {
-                code: 200,
-                message: "Success set fake tasks in User",
-              },
+    },
+    responses: {
+      200: {
+        description: "Success set fake tasks in User",
+        content: {
+          "application/json": {
+            example: {
+              code: 200,
+              message: "Success set fake tasks in User",
             },
           },
         },
-        400: {
-          description: "Bad request (invalid request body)",
-        },
-        401: {
-          description: "Not authorization",
-        },
-        500: {
-          description: "Server error",
-        },
+      },
+      400: {
+        description: "Bad request (invalid request body)",
+      },
+      401: {
+        description: "Not authorization",
+      },
+      500: {
+        description: "Server error",
       },
     },
   },
