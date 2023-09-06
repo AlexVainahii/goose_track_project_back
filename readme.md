@@ -1,6 +1,6 @@
 # Goose Track Project Back
 
-![Goose Track Project Back Logo](https://res.cloudinary.com/dnhobiphs/image/upload/v1693180404/stat/image-1_k4vxlg.png)
+![Goose Track Project Back Logo](https://res.cloudinary.com/dnhobiphs/image/upload/v1693180414/stat/image-5_avhlwt.png)
 
 Goose Track Project Back is the backend of the application that provides a set of useful features for managing users and their tasks. It enables user authentication and authorization, user data modification, task creation and editing, reviews management, and many other useful options.
 
@@ -36,15 +36,18 @@ Goose Track Project Back is the backend of the application that provides a set o
 Create a `.env` file in the project's root directory and configure environment variables according to your needs. Remember that these are just examples of variables. For security, do not include `.env` files in your repository. Use `.env.example` as an example of configuration.
 
 ```plaintext
-PORT=3000
-SENDGRID_API_KEY=your_sendgrid_api_key
+
+
+
+DB_HOST=your_database_url
+PORT=your_Backend_port
 SECRET_KEY=your_secret_key
-DATABASE_URL=your_database_url
-CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
-CLOUDINARY_API_KEY=your_cloudinary_api_key
-CLOUDINARY_API_SECRET=your_cloudinary_api_secret
-GITHUB_CLIENT_ID=your_github_client_id
-GITHUB_CLIENT_SECRET=your_github_client_secret
+SENDGRID_API_KEY=your_sendgrid_api_key
+BASE_URL==your_backend_server
+CLOUDINARY_NAME=your_cloudinary_cloud_name
+CLOUDINARY_KEY=your_cloudinary_api_key
+CLOUDINARY_SECRET=your_cloudinary_api_secret
+BASE_URL_FRONT=front_url
 
 
 ```
