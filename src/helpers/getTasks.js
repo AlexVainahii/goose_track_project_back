@@ -178,11 +178,20 @@ function getTasks(taskCount, owners, startMonth, endMonth) {
     return `${hour}:${minute}`;
   }
 
-  function generateRandomDate(month) {
-    const year = parseInt(month.split("-")[0]);
-    const randomMonthNum = parseInt(month.split("-")[1]);
+  function generateRandomDate(startMonth, endMonth) {
+    const startYear = parseInt(startMonth.split("-")[0]);
+    const startMonthNum = parseInt(startMonth.split("-")[1]);
+    const endYear = parseInt(endMonth.split("-")[0]);
+    const endMonthNum = parseInt(endMonth.split("-")[1]);
+
+    const randomYear =
+      startYear + Math.floor(Math.random() * (endYear - startYear + 1));
+    const randomMonthNum =
+      startMonthNum +
+      Math.floor(Math.random() * (endMonthNum - startMonthNum + 1));
     const day = String(Math.floor(Math.random() * 30) + 1).padStart(2, "0");
-    return `${year}-${String(randomMonthNum).padStart(2, "0")}-${day}`;
+
+    return `${randomYear}-${String(randomMonthNum).padStart(2, "0")}-${day}`;
   }
 
   function getRandomElement(array) {
@@ -199,14 +208,7 @@ function getTasks(taskCount, owners, startMonth, endMonth) {
     } while (end <= start);
 
     const priority = getRandomElement(priorities);
-    const startYear = parseInt(startMonth.split("-")[0]);
-    const endYear = parseInt(endMonth.split("-")[0]);
-
-    const randomYear =
-      Math.floor(Math.random() * (endYear - startYear + 1)) + startYear;
-    const randomMonthNum = Math.floor(Math.random() * 12) + 1;
-    const month = randomYear + "-" + String(randomMonthNum).padStart(2, "0");
-    const date = generateRandomDate(month);
+    const date = generateRandomDate(startMonth, endMonth);
     const category = getRandomElement(categories);
     const owner = owners;
 
@@ -222,7 +224,6 @@ function getTasks(taskCount, owners, startMonth, endMonth) {
 
     tasks.push(task);
   }
-
   return tasks;
 }
 
